@@ -1,30 +1,10 @@
-[![Watch tutorial here](https://img.youtube.com/vi/sUKptmUVIBM/0.jpg)](https://youtu.be/sUKptmUVIBM)
+# Yash Rai's Portfolio
 
-# [Watch video here](https://youtu.be/sUKptmUVIBM)
+👋 Hey there! I'm Yash Rai, a passionate Full Stack Developer and Software Engineer with a strong foundation in Computer Science and web technologies.
 
-## What you will learn
-
-- Latest Next.js 13 features
-- Next.js App Router
-- Next.js Server Actions
-- Client & Server Components
-- TypeScript (Beginner & Intermediate)
-- Tailwind CSS
-- Context API
-- Advanced Animations with Framer Motion
-- React.Email & Resend
-- Custom React hooks
-- Fresh, modern UI design
-- Light & Dark mode
-- Responsive website
-
-## Important
-
-If you want to be a professional developer, you have to know the fundamentals like JavaScript and CSS really well. I highly recommend you go through my [Professional JavaScript](https://bytegrad.com/courses/professional-javascript) and [Professional CSS](https://bytegrad.com/courses/professional-css) courses.
-
-I'm close to releasing a complete React & Next.js course. Get on the email list to receive early-bird pricing: [link](https://email.bytegrad.com/).
-
-## Setup
-
-1. Add RESEND_API_KEY environment variable in .env.local
-2. In the send-email.ts action file, change the "to" email to your own email
+## Contact Details
+- 📞 Phone: 9026332517
+- 📧 Email: yashrai1224@gmail.com
+- 📍 Location: 19 Pratap Pura Nagra, Jhansi, UP
+- 💼 Portfolio: [yash-rai-29.github.io/portfolio/](https://yash-rai-29.github.io/portfolio/)
+- 🌐 GitHub: [github.com/Yash-rai-29](https://github.com/Yash-rai-29)
