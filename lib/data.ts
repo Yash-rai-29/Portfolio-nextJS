@@ -77,7 +77,7 @@ export const projectsData = [
     imageUrl: dataform,
   },
   {
-    title: "URL Shortener",
+    title: "URL Shortener Generator",
     description:
       "Developed a feature-rich URL shortener service using Node.js, Firebase, ReactJS, and Tailwind CSS. Implemented robust user authentication and authorization mechanisms via Firebase, ensuring secure access to shortened URLs. Leveraging Firebase database, I designed a scalable architecture for storing and managing shortened URLs with efficient validation and retrieval mechanisms. The user interface, built with ReactJS and Tailwind CSS, prioritized usability and aesthetics, offering a seamless experience for users to generate and manage shortened URLs effectively.",
     tags: ["Node.js", "Firebase", "ReactJS", "Tailwind CSS", "URL Shortener", "Authentication", "Database Management"],
