@@ -5,6 +5,7 @@ import SectionHeading from "./section-heading";
 import { skillsData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
+import { useHover } from "react-use";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -18,6 +19,20 @@ const fadeInAnimationVariants = {
       delay: 0.05 * index,
     },
   }),
+};
+
+const hoverAnimationVariants = {
+  initial: {
+    scale: 1,
+    opacity: 1,
+  },
+  hover: {
+    scale: 1.05,
+    opacity: 0.9,
+    transition: {
+      duration: 0.2,
+    },
+  },
 };
 
 export default function Skills() {
@@ -43,7 +58,14 @@ export default function Skills() {
             }}
             custom={index}
           >
-            {skill}
+            <motion.div
+              variants={hoverAnimationVariants}
+              initial="initial"
+              whileHover="hover"
+              className="cursor-pointer"
+            >
+              {skill}
+            </motion.div>
           </motion.li>
         ))}
       </ul>
