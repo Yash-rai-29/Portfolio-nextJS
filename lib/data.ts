@@ -40,7 +40,10 @@ export const experiencesData = [
     location: "Clarity",
     description:
       "As a Software Development Engineer Intern at Clarity from February 2024 to June 2024, I spearheaded the development of a Customer Data Platform (CDP) web application. This application revolutionized user data management by enhancing the detection of events, payments, and fraudulent activities. Utilizing Python and Apache Beam, I engineered a real-time big data pipeline capable of processing over 5 million user events daily from Pub/Sub to BigQuery and Bigtable. Additionally, I implemented an ETL pipeline that streamlined real-time data processing from Pub/Sub, leveraging Apache Beam to transform and store data in BigQuery, resulting in a 10% reduction in data handling costs.",
-    icon: React.createElement(FaDatabase),
+      icon: React.createElement(
+        'img',
+        { src: 'https://media.licdn.com/dms/image/D4D0BAQERmTjiaWqztQ/company-logo_200_200/0/1666330082816/tryclarity_logo?e=1729123200&v=beta&t=ItyvhTBq7Hs9eiipgDanic6bKEabnzmgxSRLRu-tEaA', alt: 'Icon' }
+      ),
     date: "Feb 2024 – Jun 2024",
   },
   {
@@ -48,7 +51,10 @@ export const experiencesData = [
     location: "BinPlus Technologies",
     description:
       "At BinPlus Technologies from November 2023 to January 2024, I played a pivotal role as a UI/UX Developer Intern. I contributed to a casino game project by integrating Socket.IO components, enabling seamless real-time gameplay connectivity. Leveraging React, I developed interactive components that enhanced online gameplay interactions. Furthermore, I designed and developed a betting website from scratch, integrating various APIs to support dynamic user management functionalities. I also implemented robust authentication and authorization mechanisms using Node.js, ensuring secure API endpoints with token-based authentication.",
-    icon: React.createElement(FaReact),
+      icon: React.createElement(
+        'img',
+        { src: 'https://media.licdn.com/dms/image/C4E0BAQEg8mLNf9pMRw/company-logo_200_200/0/1630621676966/binplus_logo?e=1729123200&v=beta&t=eZw1q7aXqk9PibGX1YX98iy7VTZNFUufxueIxEG0opU', alt: 'Icon' }
+      ),
     date: "Nov 2023 – Jan 2024",
   },
   {
@@ -56,7 +62,11 @@ export const experiencesData = [
     location: "Abhyaz",
     description:
       "During my tenure as a Web Developer Intern at Abhyaz from December 2022 to May 2023, I focused on maintaining and developing dynamic and responsive web applications on the Zoho platform. I successfully managed and enhanced three different websites, utilizing Zoho Sites to implement features such as forms, calendar event markers, and various interactive elements. My contributions significantly improved user experience across these platforms, demonstrating my proficiency in web development and UI/UX design principles.",
-    icon: React.createElement(IoLogoHtml5),
+    icon: React.createElement(
+      'img',
+      { src: 'https://media.licdn.com/dms/image/D4D0BAQGotxw-I70YMQ/company-logo_200_200/0/1683617270350/abhyazlearning_logo?e=1729123200&v=beta&t=T4vc68gOUrHcGZs1GDHfdpQgYYzXmpCsihNlNKmyhhs', alt: 'Icon' }
+    ),
+    // icon: React.createElement(IoLogoHtml5),
     date: "Dec 2022 – May 2023",
   },
 ] as const;
@@ -82,6 +92,8 @@ export const projectsData = [
       "Developed a feature-rich URL shortener service using Node.js, Firebase, ReactJS, and Tailwind CSS. Implemented robust user authentication and authorization mechanisms via Firebase, ensuring secure access to shortened URLs. Leveraging Firebase database, I designed a scalable architecture for storing and managing shortened URLs with efficient validation and retrieval mechanisms. The user interface, built with ReactJS and Tailwind CSS, prioritized usability and aesthetics, offering a seamless experience for users to generate and manage shortened URLs effectively.",
     tags: ["Node.js", "Firebase", "ReactJS", "Tailwind CSS", "URL Shortener", "Authentication", "Database Management"],
     imageUrl: url,
+    websiteUrl: "https://url-shortener-seven-rho.vercel.app",
+    sourceUrl: "https://github.com/Yash-rai-29/URL-Shortener",
   },
 ] as const;
 
@@ -92,20 +104,28 @@ export const skillsData = [
   "Apache Beam",
   "Google Cloud Platform (GCP)",
   "BigQuery",
+  "Google Cloud Funtions",
   "Bigtable",
+  "Firebase",
+  "Google Dataflow",
+  "Cloud Storage",
+  "ReactJS",
+  "Spark",
   "Pub/Sub",
   "Databricks",
-  "Spark",
   "Kafka",
+  "GKE Kubernetes",
   "ETL",
   "Data Pipelines",
   "Data Warehousing",
   "Data Engineering",
   "Cloud Computing",
   "Database Management",
+  "Azure Data Factory",
+  "Azure DataBricks",
+  "Azure Synapse Analytics",
   "Git",
   "Docker",
-  "Kubernetes",
   "REST APIs",
 ] as const;
 
