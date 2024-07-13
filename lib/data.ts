@@ -78,6 +78,8 @@ export const projectsData = [
       "Designed and implemented a robust real-time streaming data pipeline using Python, Apache Beam, Google Cloud Pub/Sub, Apache Kafka, BigQuery, and Bigtable. The pipeline was engineered to handle a dynamic range of 20-25 topics sourced from Apache Kafka via Google Pub/Sub, ensuring efficient data ingestion and processing. Utilizing Apache Beam (Python), I developed data transformation and cleansing processes to ensure data quality and consistency before storage. The entire pipeline was deployed and managed on Google Dataflow, enabling seamless real-time data processing and monitoring.",
     tags: ["Python", "Apache Beam", "Google Cloud", "BigQuery", "Bigtable", "Real-Time Data", "Data Engineering"],
     imageUrl: etl,
+    websiteUrl: null,
+    sourceUrl: null,
   },
   {
     title: "Raw Data to Incremental Table",
@@ -85,6 +87,8 @@ export const projectsData = [
       "Engineered and implemented a data pipeline using Google Dataform and BigQuery to transform raw data into incremental views for comprehensive analytics. Leveraging Google Dataform, I orchestrated the extraction and transformation of raw data from diverse sources, ensuring alignment with business requirements. By creating and joining multiple views, I facilitated detailed data analysis and reporting. Automation of the pipeline enabled scheduled runs, ensuring timely availability of updated data for strategic decision-making.",
     tags: ["Google Dataform", "BigQuery", "Data Transformation", "Data Analytics", "Automation"],
     imageUrl: dataform,
+    websiteUrl: null,
+    sourceUrl: null,
   },
   {
     title: "URL Shortener Generator",
