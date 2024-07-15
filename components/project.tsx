@@ -34,7 +34,7 @@ export default function Project({
       }}
       className="group mb-6 sm:mb-12 last:mb-0"
     >
-      <section className="bg-gray-100 max-w-[46rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[28rem] hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
+      <section className="bg-gray-100 max-w-[54rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[24rem] hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
         <div className="pt-6 pb-8 px-6 sm:pl-10 sm:pr-1 sm:pt-12 sm:max-w-[68%] flex flex-col h-full sm:group-even:ml-[14rem] overflow-hidden relative">
           <h3 className="text-2xl font-semibold">{title}</h3>
           <ul className="flex flex-wrap gap-2 mt-2 mb-4">
@@ -68,7 +68,7 @@ export default function Project({
           group-even:right-[initial] group-even:-left-40"
         />
 
-        <div className={`mt-4 flex space-x-2 px-6 pb-6 sm:absolute sm:bottom-6 ${imageUrl ? 'sm:left-10' : 'sm:left-0'} sm:space-x-4 sm:px-0 md:group-odd:ml-[29rem]`}>
+        <div className={`mt-4 flex space-x-2 px-6 pb-6 sm:absolute sm:bottom-6 ${imageUrl ? 'sm:left-10' : 'sm:left-0'} sm:space-x-4 sm:px-0 md:group-odd:ml-[36rem]`}>
           {websiteUrl && (
             <a
               href={websiteUrl}

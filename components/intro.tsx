@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
+import { VscPassFilled } from "react-icons/vsc";
 import { FaGithubSquare, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { FaCloudArrowDown } from "react-icons/fa6";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -18,7 +20,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] p-4"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -27,7 +29,7 @@ export default function Intro() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{
               type: "tween",
-              duration: 0.2,
+              duration: 0.5,
             }}
           >
             <Image
@@ -37,7 +39,7 @@ export default function Intro() {
               height="192"
               quality="95"
               priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              className="h-24 w-24 sm:h-32 sm:w-32 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
             />
           </motion.div>
 
@@ -48,7 +50,7 @@ export default function Intro() {
             transition={{
               type: "spring",
               stiffness: 125,
-              delay: 0.1,
+              delay: 0.2,
               duration: 0.7,
             }}
           >
@@ -58,9 +60,12 @@ export default function Intro() {
       </div>
 
       <motion.h1
-        className="mb-10 mt-4 px-4 text-lg font-medium !leading-[1.5] sm:text-xl"
-        initial={{ opacity: 0, y: 100 }}
+        className="mb-10 mt-4 px-4 text-lg sm:text-xl font-medium !leading-[1.5]"
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+        }}
       >
         <span className="font-bold">Hello, I'm Yash Rai.</span> I'm a{" "}
         <span className="font-bold">Data Engineer</span> specializing in{" "}
@@ -72,11 +77,11 @@ export default function Intro() {
       </motion.h1>
 
       <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
-        initial={{ opacity: 0, y: 100 }}
+        className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          delay: 0.1,
+          delay: 0.2,
         }}
       >
         <Link
@@ -97,16 +102,25 @@ export default function Intro() {
           download
         >
           Download CV{" "}
-          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
+          <FaCloudArrowDown className="opacity-60 group-hover:translate-x-1 transition" />
         </a>
+
+        <Link
+          href="https://topmate.io/yash_rai" target="_blank"
+          rel="noopener noreferrer"
+          className="group bg-blue-600 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-blue-700 active:scale-105 transition"
+        >
+          1:1 Talk{" "}
+          <VscPassFilled className="opacity-70 transition" />
+        </Link>
       </motion.div>
 
       <motion.div
         className="flex items-center justify-center gap-4 mt-4"
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          delay: 0.1,
+          delay: 0.2,
         }}
       >
         <a
