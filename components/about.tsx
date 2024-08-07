@@ -29,7 +29,12 @@ export default function About() {
       </p>
 
       <p className="mb-3">
-        Professionally, I have worked as a{" "}
+  Currently, I am working as a <span className="font-medium">Software Engineer</span> at Aviato Consulting, where I continue to hone my skills in software development and data engineering.
+</p>
+
+
+      <p className="mb-3">
+      Previously, I have worked as a{" "}
         <span className="font-medium">Software Development Engineer Intern</span>{" "}
         at Clarity, where I developed a Customer Data Platform (CDP) web application
         that significantly improved user data management and fraud detection.

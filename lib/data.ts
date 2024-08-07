@@ -1,8 +1,4 @@
 import React from "react";
-import { IoLogoHtml5 } from "react-icons/io5";
-import { FaReact } from "react-icons/fa";
-import { LuGraduationCap } from "react-icons/lu";
-import { FaDatabase } from "react-icons/fa6";
 import etl from "@/public/etl.png";
 import dataform from "@/public/dataform.webp";
 import url from "@/public/url.png";
@@ -35,6 +31,17 @@ export const links = [
 ] as const;
 
 export const experiencesData = [
+  {
+    title: "Software Engineer",
+    location: "Aviato Consulting",
+    description:
+      "",
+      icon: React.createElement(
+        'img',
+        { src: 'https://media.licdn.com/dms/image/D560BAQE7O_FfgCEIIQ/company-logo_200_200/0/1700608133194/aviato_consulting_logo?e=1730937600&v=beta&t=t3G77LeEJOFh1gI1K3QMjQHf3wxYoqih8lCD-BH0UeU', alt: 'Icon' }
+      ),
+    date: "July 2024 – Present",
+  },
   {
     title: "Software Development Engineer Intern",
     location: "Clarity",
@@ -131,5 +138,6 @@ export const skillsData = [
   "Git",
   "Docker",
   "REST APIs",
+  "FastAPI",
 ] as const;
 

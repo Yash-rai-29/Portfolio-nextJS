@@ -57,30 +57,34 @@ const Experience = () => {
             }}
           >
             <h3 className="font-semibold capitalize">{item.title}</h3>
-            <p className="font-normal !mt-0">{item.location}</p>
-            <div onClick={() => toggleDescription(index)} className="cursor-pointer flex items-center mt-2">
-              {openDescriptionIndex === index ? (
-                <FaChevronUp className="text-gray-700 dark:text-white/75 mr-2" />
-              ) : (
-                <FaChevronDown className="text-gray-700 dark:text-white/75 mr-2" />
-              )}
-              <span className="text-gray-700 dark:text-white/75">
-                {openDescriptionIndex === index ? "Hide" : "Show"} Description
-              </span>
-            </div>
-            <motion.div
-              initial={false}
-              animate={{
-                height: openDescriptionIndex === index ? 'auto' : 0,
-                opacity: openDescriptionIndex === index ? 1 : 0,
-                overflow: 'hidden',
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
-                {item.description}
-              </p>
-            </motion.div>
+            <p style={{ fontSize: '14px' }} className="font-normal !mt-0">{item.location}</p>
+            {item.description && (
+              <div onClick={() => toggleDescription(index)} className="cursor-pointer flex items-center mt-2">
+                {openDescriptionIndex === index ? (
+                  <FaChevronUp className="text-gray-700 dark:text-white/75 mr-2" />
+                ) : (
+                  <FaChevronDown className="text-gray-700 dark:text-white/75 mr-2" />
+                )}
+                <span style={{ fontSize: '12px' }} className="text-gray-700 dark:text-white/75">
+                  {openDescriptionIndex === index ? "Hide" : "Show"} Description
+                </span>
+              </div>
+            )}
+            {item.description && (
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openDescriptionIndex === index ? 'auto' : 0,
+                  opacity: openDescriptionIndex === index ? 1 : 0,
+                  overflow: 'hidden',
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
+                  {item.description}
+                </p>
+              </motion.div>
+            )}
           </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
