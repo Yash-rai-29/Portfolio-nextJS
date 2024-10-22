@@ -38,7 +38,7 @@ export const experiencesData = [
       "",
       icon: React.createElement(
         'img',
-        { src: 'https://media.licdn.com/dms/image/D560BAQE7O_FfgCEIIQ/company-logo_200_200/0/1700608133194/aviato_consulting_logo?e=1730937600&v=beta&t=t3G77LeEJOFh1gI1K3QMjQHf3wxYoqih8lCD-BH0UeU', alt: 'Icon' }
+        { src: './aviato_consulting_logo.jpeg', alt: 'Icon' }
       ),
     date: "July 2024 – Present",
   },
@@ -49,7 +49,7 @@ export const experiencesData = [
       "As a Software Development Engineer Intern at Clarity from February 2024 to June 2024, I spearheaded the development of a Customer Data Platform (CDP) web application. This application revolutionized user data management by enhancing the detection of events, payments, and fraudulent activities. Utilizing Python and Apache Beam, I engineered a real-time big data pipeline capable of processing over 5 million user events daily from Pub/Sub to BigQuery and Bigtable. Additionally, I implemented an ETL pipeline that streamlined real-time data processing from Pub/Sub, leveraging Apache Beam to transform and store data in BigQuery, resulting in a 10% reduction in data handling costs.",
       icon: React.createElement(
         'img',
-        { src: 'https://media.licdn.com/dms/image/D4D0BAQERmTjiaWqztQ/company-logo_200_200/0/1666330082816/tryclarity_logo?e=1729123200&v=beta&t=ItyvhTBq7Hs9eiipgDanic6bKEabnzmgxSRLRu-tEaA', alt: 'Icon' }
+        { src: './tryclarity_logo.jpeg', alt: 'Icon' }
       ),
     date: "Feb 2024 – Jun 2024",
   },
@@ -60,7 +60,7 @@ export const experiencesData = [
       "At BinPlus Technologies from November 2023 to January 2024, I played a pivotal role as a UI/UX Developer Intern. I contributed to a casino game project by integrating Socket.IO components, enabling seamless real-time gameplay connectivity. Leveraging React, I developed interactive components that enhanced online gameplay interactions. Furthermore, I designed and developed a betting website from scratch, integrating various APIs to support dynamic user management functionalities. I also implemented robust authentication and authorization mechanisms using Node.js, ensuring secure API endpoints with token-based authentication.",
       icon: React.createElement(
         'img',
-        { src: 'https://media.licdn.com/dms/image/C4E0BAQEg8mLNf9pMRw/company-logo_200_200/0/1630621676966/binplus_logo?e=1729123200&v=beta&t=eZw1q7aXqk9PibGX1YX98iy7VTZNFUufxueIxEG0opU', alt: 'Icon' }
+        { src: './binplus_logo.jpeg', alt: 'Icon' }
       ),
     date: "Nov 2023 – Jan 2024",
   },
@@ -71,7 +71,7 @@ export const experiencesData = [
       "During my tenure as a Web Developer Intern at Abhyaz from December 2022 to May 2023, I focused on maintaining and developing dynamic and responsive web applications on the Zoho platform. I successfully managed and enhanced three different websites, utilizing Zoho Sites to implement features such as forms, calendar event markers, and various interactive elements. My contributions significantly improved user experience across these platforms, demonstrating my proficiency in web development and UI/UX design principles.",
     icon: React.createElement(
       'img',
-      { src: 'https://media.licdn.com/dms/image/D4D0BAQGotxw-I70YMQ/company-logo_200_200/0/1683617270350/abhyazlearning_logo?e=1729123200&v=beta&t=T4vc68gOUrHcGZs1GDHfdpQgYYzXmpCsihNlNKmyhhs', alt: 'Icon' }
+      { src: './abhyazlearning_logo.jpeg', alt: 'Icon' }
     ),
     // icon: React.createElement(IoLogoHtml5),
     date: "Dec 2022 – May 2023",
