@@ -104,15 +104,7 @@ export default function Intro() {
           Download CV{" "}
           <FaCloudArrowDown className="opacity-60 group-hover:translate-x-1 transition" />
         </a>
-{/* 
-        {/* <Link
-          href="https://topmate.io/yash_rai" target="_blank"
-          rel="noopener noreferrer"
-          className="group bg-blue-600 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-blue-700 active:scale-105 transition"
-        >
-          1:1 Talk{" "}
-          <VscPassFilled className="opacity-70 transition" />
-        </Link> */} */}
+
       </motion.div>
 
       <motion.div
