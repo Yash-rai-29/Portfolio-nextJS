@@ -33,7 +33,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/DP.jpg"
+              src="/yash.jpg"
               alt="Yash Rai portrait"
               width="192"
               height="192"

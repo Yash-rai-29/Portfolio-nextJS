@@ -2,6 +2,7 @@ import React from "react";
 import etl from "@/public/etl.png";
 import dataform from "@/public/dataform.webp";
 import url from "@/public/url.png";
+import cloudcertify from "@/public/cloudcertify.png"
 
 export const links = [
   {
@@ -80,9 +81,18 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "CloudCertify – GCP Certification Companion",
+    description:
+      "CloudCertify is your smart companion for Google Cloud certification prep. It offers daily practice quizzes, full-length mock tests, performance tracking, and curated resources — all in one seamless platform. Built with a modern full-stack approach, the app uses Firebase for authentication and hosting, FastAPI for backend APIs deployed on Cloud Run, and Elasticsearch for fast search and analytics. The UI, developed in Next.js, ensures a responsive and intuitive user experience. CloudCertify helps users prepare consistently and pass GCP exams with confidence.",
+    tags: ["Next.js", "Firebase", "FastAPI", "Cloud Run", "Elasticsearch", "Firestore", "JavaScript", "GCP"],
+    imageUrl: cloudcertify, // Make sure to define/import this image
+    websiteUrl: "https://cloudcertify.web.app/",
+    sourceUrl: null,
+  },
+  {
     title: "Real-Time Streaming Data Pipeline",
     description:
-      "Designed and implemented a robust real-time streaming data pipeline using Python, Apache Beam, Google Cloud Pub/Sub, Apache Kafka, BigQuery, and Bigtable. The pipeline was engineered to handle a dynamic range of 20-25 topics sourced from Apache Kafka via Google Pub/Sub, ensuring efficient data ingestion and processing. Utilizing Apache Beam (Python), I developed data transformation and cleansing processes to ensure data quality and consistency before storage. The entire pipeline was deployed and managed on Google Dataflow, enabling seamless real-time data processing and monitoring.",
+      "Designed and implemented a robust real-time streaming data pipeline using Python, Apache Beam, Google Cloud Pub/Sub, Apache Kafka, BigQuery, and Bigtable. The pipeline was engineered to handle a dynamic range of 20–25 topics sourced from Apache Kafka via Google Pub/Sub, ensuring efficient data ingestion and processing. Utilizing Apache Beam, I developed transformation and cleansing processes to ensure high-quality data before storage. The entire pipeline was deployed and monitored on Google Dataflow for seamless real-time processing.",
     tags: ["Python", "Apache Beam", "Google Cloud", "BigQuery", "Bigtable", "Real-Time Data", "Data Engineering"],
     imageUrl: etl,
     websiteUrl: null,
@@ -91,7 +101,7 @@ export const projectsData = [
   {
     title: "Raw Data to Incremental Table",
     description:
-      "Engineered and implemented a data pipeline using Google Dataform and BigQuery to transform raw data into incremental views for comprehensive analytics. Leveraging Google Dataform, I orchestrated the extraction and transformation of raw data from diverse sources, ensuring alignment with business requirements. By creating and joining multiple views, I facilitated detailed data analysis and reporting. Automation of the pipeline enabled scheduled runs, ensuring timely availability of updated data for strategic decision-making.",
+      "Engineered and automated a data pipeline using Google Dataform and BigQuery to transform raw datasets into incremental views for analytics. The pipeline extracts and transforms data from diverse sources and joins multiple views to enable rich, structured reporting. This automation ensures timely, consistent, and accurate data availability aligned with business goals, improving strategic data-driven decisions.",
     tags: ["Google Dataform", "BigQuery", "Data Transformation", "Data Analytics", "Automation"],
     imageUrl: dataform,
     websiteUrl: null,
@@ -100,14 +110,13 @@ export const projectsData = [
   {
     title: "URL Shortener Generator",
     description:
-      "Developed a feature-rich URL shortener service using Node.js, Firebase, ReactJS, and Tailwind CSS. Implemented robust user authentication and authorization mechanisms via Firebase, ensuring secure access to shortened URLs. Leveraging Firebase database, I designed a scalable architecture for storing and managing shortened URLs with efficient validation and retrieval mechanisms. The user interface, built with ReactJS and Tailwind CSS, prioritized usability and aesthetics, offering a seamless experience for users to generate and manage shortened URLs effectively.",
+      "Built a full-stack URL shortener service with Node.js, Firebase, ReactJS, and Tailwind CSS. Integrated user authentication and authorization with Firebase and designed a scalable Firebase database schema to manage URLs. The front-end, built with ReactJS and styled using Tailwind CSS, delivers a responsive and user-friendly interface for creating and managing short links.",
     tags: ["Node.js", "Firebase", "ReactJS", "Tailwind CSS", "URL Shortener", "Authentication", "Database Management"],
     imageUrl: url,
     websiteUrl: "https://url-shortener-seven-rho.vercel.app",
     sourceUrl: "https://github.com/Yash-rai-29/URL-Shortener",
   },
 ] as const;
-
 
 export const skillsData = [
   "Python",
