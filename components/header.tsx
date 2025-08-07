@@ -37,7 +37,8 @@ export default function Header() {
                   }
                 )}
                 href={link.hash}
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent default scroll behavior
                   setActiveSection(link.name);
                   setTimeOfLastClick(Date.now());
                 }}

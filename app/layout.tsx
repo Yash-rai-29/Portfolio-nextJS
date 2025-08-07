@@ -7,6 +7,7 @@ import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from '@vercel/analytics/next';
+import SplineRobot from "@/components/SplineRobot";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -30,6 +31,10 @@ export default function RootLayout({
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <Header />
+            
+            {/* 3D robot model - fixed at bottom left of all pages */}
+            <SplineRobot />
+            
             {children}
             <Analytics />
             <Toaster position="top-right" />
