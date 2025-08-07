@@ -14,7 +14,7 @@ export default function Home() {
   // Ensure useActiveSectionContext() is only used on the client-side
   useEffect(() => {
     setActiveSection("Home"); // Set default active section on initial load
-  }, []);
+  }, [setActiveSection]);
   
   return (
     <main className="flex flex-col items-center px-4">

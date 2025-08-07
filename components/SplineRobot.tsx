@@ -32,11 +32,17 @@ class ErrorBoundary extends React.Component<
 const Spline = dynamic(
   () => import('@splinetool/react-spline').catch(() => {
     // Return a dummy component if module fails to load
-    return () => <div className="hidden"></div>;
+    const FallbackComponent = () => <div className="hidden"></div>;
+    FallbackComponent.displayName = 'SplineFallback';
+    return FallbackComponent;
   }),
   {
     ssr: false,
-    loading: () => <div className="hidden"></div>
+    loading: () => {
+      const LoadingComponent = () => <div className="hidden"></div>;
+      LoadingComponent.displayName = 'SplineLoading';
+      return <LoadingComponent />;
+    }
   }
 );
 
