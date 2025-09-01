@@ -7,7 +7,7 @@ import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from '@vercel/analytics/next';
-import SplineRobot from "@/components/SplineRobot";
+import Script from 'next/script';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -32,8 +32,6 @@ export default function RootLayout({
           <ActiveSectionContextProvider>
             <Header />
             
-            {/* 3D robot model - fixed at bottom left of all pages */}
-            <SplineRobot />
             
             {children}
             <Analytics />
@@ -41,6 +39,16 @@ export default function RootLayout({
             <ThemeSwitch />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
+
+        {/* ElevenLabs Voice Assistant Widget */}
+        <elevenlabs-convai agent-id="agent_7501k437m2hhf7aarcnc0pyegbgt"></elevenlabs-convai>
+        
+        {/* ElevenLabs Widget Script */}
+        <Script
+          src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+          strategy="afterInteractive"
+          async
+        />
       </body>
     </html>
   );
