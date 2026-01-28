@@ -60,7 +60,7 @@ export default function Contact() {
             I help founders and businesses go from <span className="font-semibold text-indigo-600 dark:text-indigo-400">0 → 1</span> with
             fast, scalable MVPs. Whether it's a <span className="font-medium">backend API</span>,
             <span className="font-medium"> AI-powered agent</span>, or
-            <span className="font-medium"> data pipeline</span> — I deliver production-ready solutions on GCP.
+            <span className="font-medium"> data pipeline</span>, I deliver production-ready solutions on GCP.
           </p>
         </motion.div>
 

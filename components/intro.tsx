@@ -200,15 +200,15 @@ export default function Intro() {
             initial="initial"
             whileHover="hover"
             whileTap="tap"
-            className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full cursor-pointer border border-gray-300 hover:text-indigo-600 hover:border-indigo-300 dark:bg-white/10 dark:text-white/60 dark:hover:text-indigo-400 dark:hover:border-indigo-400/50 dark:border-white/20 transition-colors duration-300"
+            className="relative group bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full cursor-pointer border border-gray-300 hover:text-indigo-600 hover:border-indigo-300 dark:bg-white/10 dark:text-white/60 dark:hover:text-indigo-400 dark:hover:border-indigo-400/50 dark:border-white/20 transition-colors duration-300"
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              animationDelay: `${index * 0.1}s`
-            }}
           >
             <Icon />
+            <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-gray-800 dark:bg-gray-700 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+              {label}
+            </span>
           </motion.a>
         ))}
       </motion.div>
