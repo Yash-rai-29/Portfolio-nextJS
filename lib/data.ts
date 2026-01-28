@@ -33,36 +33,36 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Software Engineer",
+    title: "Software Engineer | 🏆 Best Employee 2025",
     location: "Aviato Consulting",
     description:
-      "",
-      icon: React.createElement(
-        'img',
-        { src: './aviato_consulting_logo.jpeg', alt: 'Icon' }
-      ),
+      "Architected and deployed 4+ end-to-end scalable MVP backend solutions using FastAPI and Python for high-growth clients including Funzy, Hellow, and Gentoo. Integrated 7+ third-party services (Auth0, Stripe, Mailchimp, Mixpanel, Google Places API) enhancing user engagement and payment workflows. Optimized data management using Firestore and Cloud Storage with containerized microservices on Cloud Run achieving 99.9% uptime. Orchestrated large-scale data migrations (50+ TB) using GCP Transfer Service with zero data loss. Engineered 3+ production-grade Google ADK agents on Vertex AI, including a multi-agent system for Wesfarmers with A2A communication that automated report generation, reducing manual documentation effort by 70%. Built RAG-based RFP Agent using ADK and Vertex AI Vector Search, improving proposal accuracy by 60%.",
+    icon: React.createElement(
+      'img',
+      { src: './aviato_consulting_logo.jpeg', alt: 'Icon' }
+    ),
     date: "July 2024 – Present",
   },
   {
-    title: "Software Development Engineer Intern",
+    title: "Software Development Engineer",
     location: "Clarity",
     description:
-      "As a Software Development Engineer Intern at Clarity from February 2024 to June 2024, I spearheaded the development of a Customer Data Platform (CDP) web application. This application revolutionized user data management by enhancing the detection of events, payments, and fraudulent activities. Utilizing Python and Apache Beam, I engineered a real-time big data pipeline capable of processing over 5 million user events daily from Pub/Sub to BigQuery and Bigtable. Additionally, I implemented an ETL pipeline that streamlined real-time data processing from Pub/Sub, leveraging Apache Beam to transform and store data in BigQuery, resulting in a 10% reduction in data handling costs.",
-      icon: React.createElement(
-        'img',
-        { src: './tryclarity_logo.jpeg', alt: 'Icon' }
-      ),
-    date: "Feb 2024 – Jun 2024",
+      "Designed and implemented an advanced Customer Data Platform (CDP) web application using React.js and Node.js, improving user data management efficiency by 35%. Integrated Bigtable for efficient event data retrieval with time-range filters, processing 10+ million queries monthly with sub-second latency. Built a real-time event pipeline ETL using Python and Apache Beam, processing over 5 million user events daily from Pub/Sub to BigQuery and Bigtable, reducing data handling costs by 10%. Developed ETL processes using Google Dataform and SQLX to transform raw data into incremental tables, reducing query times by 30% and improving Looker dashboard performance.",
+    icon: React.createElement(
+      'img',
+      { src: './tryclarity_logo.jpeg', alt: 'Icon' }
+    ),
+    date: "Jan 2024 – Jun 2024",
   },
   {
     title: "UI/UX Developer Intern",
     location: "BinPlus Technologies",
     description:
       "At BinPlus Technologies from November 2023 to January 2024, I played a pivotal role as a UI/UX Developer Intern. I contributed to a casino game project by integrating Socket.IO components, enabling seamless real-time gameplay connectivity. Leveraging React, I developed interactive components that enhanced online gameplay interactions. Furthermore, I designed and developed a betting website from scratch, integrating various APIs to support dynamic user management functionalities. I also implemented robust authentication and authorization mechanisms using Node.js, ensuring secure API endpoints with token-based authentication.",
-      icon: React.createElement(
-        'img',
-        { src: './binplus_logo.jpeg', alt: 'Icon' }
-      ),
+    icon: React.createElement(
+      'img',
+      { src: './binplus_logo.jpeg', alt: 'Icon' }
+    ),
     date: "Nov 2023 – Jan 2024",
   },
   {
@@ -119,34 +119,50 @@ export const projectsData = [
 ] as const;
 
 export const skillsData = [
+  // Programming Languages
   "Python",
   "SQL",
+  "JavaScript",
+  // Data Engineering
   "Apache Beam",
+  "ETL/ELT Pipelines",
+  "Data Modeling",
+  "Stream Processing",
+  "Apache Airflow",
+  // Cloud Platforms (GCP)
   "Google Cloud Platform (GCP)",
   "BigQuery",
-  "Google Cloud Funtions",
   "Bigtable",
-  "Firebase",
-  "Google Dataflow",
-  "Cloud Storage",
-  "ReactJS",
-  "Spark",
+  "Dataflow",
   "Pub/Sub",
-  "Databricks",
-  "Kafka",
-  "GKE Kubernetes",
-  "ETL",
-  "Data Pipelines",
-  "Data Warehousing",
-  "Data Engineering",
-  "Cloud Computing",
-  "Database Management",
-  "Azure Data Factory",
-  "Azure DataBricks",
-  "Azure Synapse Analytics",
-  "Git",
-  "Docker",
-  "REST APIs",
+  "Vertex AI",
+  "Cloud Composer",
+  "Cloud Functions",
+  "Dataform",
+  "Cloud Storage",
+  "Cloud Run",
+  "GCP Transfer Service",
+  // Backend & APIs
   "FastAPI",
+  "Node.js",
+  "REST APIs",
+  // Databases
+  "Firestore",
+  "Firebase",
+  // AI/ML
+  "Gemini Pro",
+  "RAG",
+  "Vector Search",
+  "Multi-Agent Systems",
+  "Google ADK",
+  // Development Tools
+  "Docker",
+  "Git",
+  "GitHub",
+  "Jira",
+  // Other
+  "Data Warehousing",
+  "CI/CD",
+  "Agile",
 ] as const;
 

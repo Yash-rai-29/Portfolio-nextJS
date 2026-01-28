@@ -5,6 +5,25 @@ import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 
+const containerVariants = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const paragraphVariants = {
+  initial: { opacity: 0, y: 30 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+  },
+};
+
 export default function About() {
   const { ref } = useSectionInView("About");
 
@@ -12,61 +31,55 @@ export default function About() {
     <motion.section
       ref={ref}
       className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.175 }}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true, margin: "-100px" }}
       id="about"
     >
       <SectionHeading>About me</SectionHeading>
-      <p className="mb-3">
-        I graduated with a B.Tech in{" "}
-        <span className="font-medium">Computer Science & Engineering</span> from
-        SR Group of Institutions, Jhansi. With a strong foundation in computer
-        science, I have specialized in{" "}
-        <span className="font-medium">Data Engineering</span>. My passion lies
-        in building scalable data pipelines and working with{" "}
-        <span className="font-medium">big data technologies</span>.
-      </p>
 
-      <p className="mb-3">
-  Currently, I am working as a <span className="font-medium">Software Engineer</span> at Aviato Consulting, where I continue to hone my skills in software development and data engineering.
-</p>
+      <motion.div variants={containerVariants} className="space-y-4">
+        <motion.p variants={paragraphVariants}>
+          I'm a <span className="font-medium text-indigo-600 dark:text-indigo-400">GCP Professional Data Engineer Certified</span> software engineer
+          with a B.Tech in <span className="font-medium">Computer Science & Engineering</span> from
+          SR Group of Institutions (AKTU University). I specialize in building{" "}
+          <span className="font-medium text-indigo-600 dark:text-indigo-400">scalable backend solutions</span>,{" "}
+          <span className="font-medium">AI/ML agents</span>, and{" "}
+          <span className="font-medium">data pipelines</span> on Google Cloud Platform.
+        </motion.p>
 
+        <motion.p variants={paragraphVariants}>
+          Currently, I'm a <span className="font-medium text-indigo-600 dark:text-indigo-400">Software Engineer</span> at Aviato Consulting,
+          where I was awarded <span className="font-semibold text-amber-500 dark:text-amber-400">🏆 Best Employee of 2025</span>.
+          I've architected 4+ MVP backend solutions using FastAPI and Python for high-growth clients including Funzy, Hellow, and Gentoo.
+        </motion.p>
 
-      <p className="mb-3">
-      Previously, I have worked as a{" "}
-        <span className="font-medium">Software Development Engineer Intern</span>{" "}
-        at Clarity, where I developed a Customer Data Platform (CDP) web application
-        that significantly improved user data management and fraud detection.
-        I engineered a real-time big data pipeline using{" "}
-        <span className="font-medium">Python and Apache Beam</span>, processing
-        over 5 million user events daily, and implemented an ETL pipeline to
-        reduce data handling costs.
-      </p>
+        <motion.p variants={paragraphVariants}>
+          My recent work focuses on <span className="font-medium text-indigo-600 dark:text-indigo-400">AI/ML agents</span> — I've engineered 3+ production-grade
+          Google ADK agents on Vertex AI, including a sophisticated multi-agent system for Wesfarmers with Agent-to-Agent (A2A) communication
+          that automated report generation, reducing manual documentation effort by <span className="font-semibold">70%</span>.
+          I also built a RAG-based RFP Agent using Vertex AI Vector Search, improving proposal accuracy by <span className="font-semibold">60%</span>.
+        </motion.p>
 
-      <p className="mb-3">
-        My technical proficiencies include{" "}
-        <span className="font-medium">Python, SQL, and big data tools</span>{" "}
-        such as Apache Beam, Pub/Sub, and Databricks. I am also skilled in
-        cloud services, particularly <span className="font-medium">Google Cloud Platform (GCP)</span>, and database systems like BigQuery and Bigtable. My experience spans across
-        <span className="font-medium"> developing data solutions</span> that optimize workflows and enhance system performance.
-      </p>
+        <motion.p variants={paragraphVariants}>
+          Previously at Clarity, I designed a <span className="font-medium">Customer Data Platform (CDP)</span> using React.js and Node.js,
+          and built real-time ETL pipelines processing <span className="font-semibold">5+ million events daily</span> using Python, Apache Beam,
+          BigQuery, and Bigtable.
+        </motion.p>
 
-      <p className="mb-3">
-        In addition to my professional expertise, I enjoy exploring new
-        technologies and continuously expanding my knowledge. Currently, I am
-        looking for opportunities to apply my skills in a{" "}
-        <span className="font-medium">Data Engineer role</span> where I can
-        contribute to innovative projects and solve complex data problems.
-      </p>
+        <motion.p variants={paragraphVariants}>
+          My technical expertise includes{" "}
+          <span className="font-medium">Python, SQL, FastAPI, Apache Beam</span>, and the full{" "}
+          <span className="font-medium text-indigo-600 dark:text-indigo-400">GCP ecosystem</span> (BigQuery, Dataflow, Vertex AI, Cloud Run, Pub/Sub).
+          I'm also experienced with <span className="font-medium">Gemini Pro, RAG architectures</span>, and multi-agent AI systems.
+        </motion.p>
 
-      <p>
-        <span className="italic">Outside of work</span>, I have a keen interest
-        in playing video games, watching movies, and diving into{" "}
-        <span className="font-medium">technical challenges</span> as a hobby. 
-        I am also enthusiastic about learning new skills and recently, I've been exploring{" "}
-        <span className="font-medium">cloud technologies and data architecture</span>.
-      </p>
+        <motion.p variants={paragraphVariants}>
+          <span className="italic">Outside of work</span>, I enjoy playing video games, watching movies, and diving into{" "}
+          <span className="font-medium">technical challenges</span> as a hobby.
+          I'm always exploring new AI/ML technologies and cloud architectures.
+        </motion.p>
+      </motion.div>
     </motion.section>
   );
 }

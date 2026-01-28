@@ -6,11 +6,38 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-import { VscPassFilled } from "react-icons/vsc";
 import { FaGithubSquare, FaInstagram, FaTwitter } from "react-icons/fa";
+import { SiSubstack } from "react-icons/si";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { FaCloudArrowDown } from "react-icons/fa6";
+import {
+  staggerContainer,
+  fadeInUp,
+  scaleIn,
+  float,
+  pulse
+} from "@/lib/animations";
+
+const socialIconVariants = {
+  initial: { scale: 1 },
+  hover: {
+    scale: 1.15,
+    y: -3,
+    transition: { type: "spring", stiffness: 400, damping: 17 }
+  },
+  tap: { scale: 0.95 }
+};
+
+const buttonVariants = {
+  initial: { scale: 1 },
+  hover: {
+    scale: 1.05,
+    boxShadow: "0 10px 30px -10px rgba(0,0,0,0.3)",
+    transition: { type: "spring", stiffness: 400, damping: 17 }
+  },
+  tap: { scale: 0.98 }
+};
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -24,34 +51,51 @@ export default function Intro() {
     >
       <div className="flex items-center justify-center">
         <div className="relative">
+          {/* Floating Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-              type: "tween",
-              duration: 0.5,
+              type: "spring",
+              stiffness: 200,
+              damping: 20,
+              duration: 0.6,
             }}
+            className="animate-float-slow"
           >
-            <Image
-              src="/yash.jpg"
-              alt="Yash Rai portrait"
-              width="192"
-              height="192"
-              quality="95"
-              priority={true}
-              className="h-24 w-24 sm:h-32 sm:w-32 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
-            />
+            <div className="relative">
+              {/* Glow effect behind image */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 blur-xl opacity-30 animate-pulse scale-110"></div>
+              <Image
+                src="/yash.jpg"
+                alt="Yash Rai portrait"
+                width="192"
+                height="192"
+                quality="95"
+                priority={true}
+                className="h-24 w-24 sm:h-32 sm:w-32 rounded-full object-cover border-[0.35rem] border-white shadow-xl relative z-10"
+              />
+            </div>
           </motion.div>
 
+          {/* Animated Wave Emoji */}
           <motion.span
             className="absolute bottom-0 right-0 text-4xl"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0, rotate: -30 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              rotate: 0,
+            }}
             transition={{
               type: "spring",
-              stiffness: 125,
-              delay: 0.2,
-              duration: 0.7,
+              stiffness: 200,
+              delay: 0.3,
+              duration: 0.6,
+            }}
+            whileHover={{
+              rotate: [0, 14, -8, 14, -4, 10, 0],
+              transition: { duration: 0.8 }
             }}
           >
             👋
@@ -59,97 +103,114 @@ export default function Intro() {
         </div>
       </div>
 
-      <motion.h1
-        className="mb-10 mt-4 px-4 text-lg sm:text-xl font-medium !leading-[1.5]"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.5,
-        }}
+      {/* Staggered Text Reveal */}
+      <motion.div
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
+        className="mb-10 mt-4 px-4"
       >
-        <span className="font-bold">Hello, I'm Yash Rai.</span> I'm a{" "}
-        <span className="font-bold">Data Engineer</span> specializing in{" "}
-        <span className="font-bold">scalable data pipeline development</span>{" "}
-        and <span className="font-bold">big data technologies</span>. I have
-        experience in optimizing data workflows, enhancing system performance,
-        and reducing operational costs. My focus is on leveraging cutting-edge
-        tools to efficiently manage and process large datasets.
-      </motion.h1>
+        {/* GCP Certification Badge */}
+        <motion.div
+          variants={fadeInUp}
+          className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-gradient-to-r from-blue-500/10 to-green-500/10 dark:from-blue-500/20 dark:to-green-500/20 rounded-full border border-blue-200 dark:border-blue-500/30"
+        >
+          <span className="text-lg">🎓</span>
+          <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">GCP Professional Data Engineer Certified</span>
+        </motion.div>
 
+        <motion.h1
+          variants={fadeInUp}
+          className="text-lg sm:text-xl font-medium !leading-[1.5]"
+        >
+          <span className="font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-300 dark:to-white bg-clip-text">
+            Hello, I'm Yash Rai.
+          </span>{" "}
+          I'm a{" "}
+          <span className="font-bold text-indigo-600 dark:text-indigo-400">Software Engineer</span> specializing in{" "}
+          <span className="font-bold">scalable backend solutions</span>,{" "}
+          <span className="font-bold">AI/ML agents</span>, and{" "}
+          <span className="font-bold">data pipelines</span>. I help startups and businesses build
+          production-grade systems on Google Cloud Platform.
+        </motion.h1>
+      </motion.div>
+
+      {/* Action Buttons */}
       <motion.div
         className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          delay: 0.2,
+          delay: 0.3,
+          duration: 0.5,
         }}
       >
-        <Link
-          href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
-          onClick={() => {
-            setActiveSection("Contact");
-            setTimeOfLastClick(Date.now());
-          }}
+        <motion.div
+          variants={buttonVariants}
+          initial="initial"
+          whileHover="hover"
+          whileTap="tap"
         >
-          Contact me here{" "}
-          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
-        </Link>
+          <Link
+            href="#contact"
+            className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all btn-glow dark:bg-gray-800"
+            onClick={() => {
+              setActiveSection("Contact");
+              setTimeOfLastClick(Date.now());
+            }}
+          >
+            Contact me here{" "}
+            <BsArrowRight className="opacity-70 group-hover:translate-x-2 transition-transform duration-300" />
+          </Link>
+        </motion.div>
 
-        <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border border-gray-300 dark:bg-white/10"
+        <motion.a
+          variants={buttonVariants}
+          initial="initial"
+          whileHover="hover"
+          whileTap="tap"
+          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none cursor-pointer border border-gray-300 dark:bg-white/10 dark:border-white/20"
           href="/CV.pdf"
           download
         >
           Download CV{" "}
-          <FaCloudArrowDown className="opacity-60 group-hover:translate-x-1 transition" />
-        </a>
-
+          <FaCloudArrowDown className="opacity-60 group-hover:translate-y-1 group-hover:scale-110 transition-all duration-300" />
+        </motion.a>
       </motion.div>
 
+      {/* Social Icons with Enhanced Hover */}
       <motion.div
-        className="flex items-center justify-center gap-4 mt-4"
+        className="flex items-center justify-center gap-4 mt-6"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          delay: 0.2,
+          delay: 0.4,
         }}
       >
-        <a
-          className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border border-gray-300 dark:bg-white/10 dark:text-white/60"
-          href="https://linkedin.com/in/yashrai1224"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <BsLinkedin />
-        </a>
-
-        <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer border border-gray-300 dark:bg-white/10 dark:text-white/60"
-          href="https://github.com/Yash-rai-29"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithubSquare />
-        </a>
-
-        <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer border border-gray-300 dark:bg-white/10 dark:text-white/60"
-          href="https://www.instagram.com/yashrai_29"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaInstagram />
-        </a>
-
-        <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer border border-gray-300 dark:bg-white/10 dark:text-white/60"
-          href="https://twitter.com/YashRai1224"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaTwitter />
-        </a>
+        {[
+          { href: "https://linkedin.com/in/yashrai1224", Icon: BsLinkedin, label: "LinkedIn" },
+          { href: "https://github.com/Yash-rai-29", Icon: FaGithubSquare, label: "GitHub" },
+          { href: "https://yashdev.substack.com", Icon: SiSubstack, label: "Newsletter" },
+          { href: "https://www.instagram.com/yashrai_29", Icon: FaInstagram, label: "Instagram" },
+          { href: "https://twitter.com/YashRai1224", Icon: FaTwitter, label: "Twitter" },
+        ].map(({ href, Icon, label }, index) => (
+          <motion.a
+            key={label}
+            variants={socialIconVariants}
+            initial="initial"
+            whileHover="hover"
+            whileTap="tap"
+            className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full cursor-pointer border border-gray-300 hover:text-indigo-600 hover:border-indigo-300 dark:bg-white/10 dark:text-white/60 dark:hover:text-indigo-400 dark:hover:border-indigo-400/50 dark:border-white/20 transition-colors duration-300"
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              animationDelay: `${index * 0.1}s`
+            }}
+          >
+            <Icon />
+          </motion.a>
+        ))}
       </motion.div>
     </section>
   );

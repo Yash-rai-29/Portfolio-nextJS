@@ -11,7 +11,7 @@ import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { useTheme } from "@/context/theme-context";
 import { motion } from "framer-motion";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 
 const Experience = () => {
   const { ref } = useSectionInView("Experience");
@@ -59,16 +59,21 @@ const Experience = () => {
             <h3 className="font-semibold capitalize">{item.title}</h3>
             <p style={{ fontSize: '14px' }} className="font-normal !mt-0">{item.location}</p>
             {item.description && (
-              <div onClick={() => toggleDescription(index)} className="cursor-pointer flex items-center mt-2">
-                {openDescriptionIndex === index ? (
-                  <FaChevronUp className="text-gray-700 dark:text-white/75 mr-2" />
-                ) : (
-                  <FaChevronDown className="text-gray-700 dark:text-white/75 mr-2" />
-                )}
-                <span style={{ fontSize: '12px' }} className="text-gray-700 dark:text-white/75">
-                  {openDescriptionIndex === index ? "Hide" : "Show"} Description
-                </span>
-              </div>
+              <motion.button
+                onClick={() => toggleDescription(index)}
+                className="mt-2 inline-flex items-center gap-1.5 px-2 py-1 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/20 transition-all duration-200"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <motion.span
+                  animate={{ rotate: openDescriptionIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-[10px]"
+                >
+                  <FaChevronDown />
+                </motion.span>
+                {openDescriptionIndex === index ? "Hide" : "Key Contributions"}
+              </motion.button>
             )}
             {item.description && (
               <motion.div
