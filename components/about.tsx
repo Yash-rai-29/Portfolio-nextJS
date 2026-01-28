@@ -30,7 +30,7 @@ export default function About() {
   return (
     <motion.section
       ref={ref}
-      className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28"
+      className="mb-20 sm:mb-28 max-w-[45rem] text-center leading-7 sm:leading-8 sm:mb-40 scroll-mt-28 px-4 sm:px-0 text-sm sm:text-base"
       initial="initial"
       whileInView="animate"
       viewport={{ once: true, margin: "-100px" }}
@@ -55,7 +55,7 @@ export default function About() {
         </motion.p>
 
         <motion.p variants={paragraphVariants}>
-          My recent work focuses on <span className="font-medium text-indigo-600 dark:text-indigo-400">AI/ML agents</span> — I've engineered 3+ production-grade
+          My recent work focuses on <span className="font-medium text-indigo-600 dark:text-indigo-400">AI/ML agents</span>. I've engineered 3+ production-grade
           Google ADK agents on Vertex AI, including a sophisticated multi-agent system for Wesfarmers with Agent-to-Agent (A2A) communication
           that automated report generation, reducing manual documentation effort by <span className="font-semibold">70%</span>.
           I also built a RAG-based RFP Agent using Vertex AI Vector Search, improving proposal accuracy by <span className="font-semibold">60%</span>.

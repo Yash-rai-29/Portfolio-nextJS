@@ -70,7 +70,7 @@ function SkillItem({ skill, index }: { skill: string; index: number }) {
       className={`
         relative bg-white dark:bg-white/10 
         border-2 border-transparent
-        rounded-xl px-5 py-3 
+        rounded-xl px-3 sm:px-5 py-2 sm:py-3 
         cursor-pointer select-none
         transition-all duration-200 ease-out
         hover:shadow-lg hover:shadow-indigo-500/20
@@ -106,11 +106,11 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="mb-20 sm:mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40 px-4 sm:px-0"
     >
       <SectionHeading>My skills</SectionHeading>
       <motion.ul
-        className="flex flex-wrap justify-center gap-3 text-lg"
+        className="flex flex-wrap justify-center gap-2 sm:gap-3 text-sm sm:text-lg"
         variants={containerVariants}
         initial="initial"
         whileInView="animate"

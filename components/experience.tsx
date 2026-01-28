@@ -23,7 +23,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
+    <section id="experience" ref={ref} className="scroll-mt-28 mb-20 sm:mb-28 sm:mb-40 px-2 sm:px-0">
       <SectionHeading>My experience</SectionHeading>
       <VerticalTimeline lineColor="">
         {experiencesData.map((item, index) => (
@@ -56,8 +56,8 @@ const Experience = () => {
               overflow: 'hidden'
             }}
           >
-            <h3 className="font-semibold capitalize">{item.title}</h3>
-            <p style={{ fontSize: '14px' }} className="font-normal !mt-0">{item.location}</p>
+            <h3 className="text-sm sm:text-base font-semibold capitalize">{item.title}</h3>
+            <p className="text-xs sm:text-sm font-normal !mt-0">{item.location}</p>
             {item.description && (
               <motion.button
                 onClick={() => toggleDescription(index)}

@@ -83,7 +83,7 @@ export const projectsData = [
   {
     title: "CloudCertify – GCP Certification Companion",
     description:
-      "CloudCertify is your smart companion for Google Cloud certification prep. It offers daily practice quizzes, full-length mock tests, performance tracking, and curated resources — all in one seamless platform. Built with a modern full-stack approach, the app uses Firebase for authentication and hosting, FastAPI for backend APIs deployed on Cloud Run, and Elasticsearch for fast search and analytics. The UI, developed in Next.js, ensures a responsive and intuitive user experience. CloudCertify helps users prepare consistently and pass GCP exams with confidence.",
+      "CloudCertify is your smart companion for Google Cloud certification prep. It offers daily practice quizzes, full-length mock tests, performance tracking, and curated resources all in one seamless platform. Built with a modern full-stack approach, the app uses Firebase for authentication and hosting, FastAPI for backend APIs deployed on Cloud Run, and Elasticsearch for fast search and analytics. The UI, developed in Next.js, ensures a responsive and intuitive user experience. CloudCertify helps users prepare consistently and pass GCP exams with confidence.",
     tags: ["Next.js", "Firebase", "FastAPI", "Cloud Run", "Elasticsearch", "Firestore", "JavaScript", "GCP"],
     imageUrl: cloudcertify, // Make sure to define/import this image
     websiteUrl: "https://cloudcertify.web.app/",

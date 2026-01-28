@@ -34,7 +34,7 @@ export default function SectionHeading({ children }: SectionHeadingProps) {
     >
       <motion.h2
         variants={headingVariants}
-        className="text-3xl font-medium capitalize inline-block relative"
+        className="text-2xl sm:text-3xl font-medium capitalize inline-block relative"
       >
         {children}
         {/* Animated Gradient Underline */}

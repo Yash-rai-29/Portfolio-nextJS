@@ -47,7 +47,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] p-4"
+      className="mb-20 sm:mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] px-3 sm:p-4 pt-24 sm:pt-4"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -80,7 +80,7 @@ export default function Intro() {
 
           {/* Animated Wave Emoji */}
           <motion.span
-            className="absolute bottom-0 right-0 text-4xl"
+            className="absolute bottom-0 right-0 text-2xl sm:text-4xl"
             initial={{ opacity: 0, scale: 0, rotate: -30 }}
             animate={{
               opacity: 1,
@@ -113,15 +113,15 @@ export default function Intro() {
         {/* GCP Certification Badge */}
         <motion.div
           variants={fadeInUp}
-          className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-gradient-to-r from-blue-500/10 to-green-500/10 dark:from-blue-500/20 dark:to-green-500/20 rounded-full border border-blue-200 dark:border-blue-500/30"
+          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 bg-gradient-to-r from-blue-500/10 to-green-500/10 dark:from-blue-500/20 dark:to-green-500/20 rounded-full border border-blue-200 dark:border-blue-500/30"
         >
-          <span className="text-lg">🎓</span>
-          <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">GCP Professional Data Engineer Certified</span>
+          <span className="text-base sm:text-lg">🎓</span>
+          <span className="text-xs sm:text-sm font-semibold text-blue-700 dark:text-blue-300">GCP Professional Data Engineer Certified</span>
         </motion.div>
 
         <motion.h1
           variants={fadeInUp}
-          className="text-lg sm:text-xl font-medium !leading-[1.5]"
+          className="text-base sm:text-lg md:text-xl font-medium !leading-[1.5]"
         >
           <span className="font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-300 dark:to-white bg-clip-text">
             Hello, I'm Yash Rai.
@@ -153,7 +153,7 @@ export default function Intro() {
         >
           <Link
             href="#contact"
-            className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none transition-all btn-glow dark:bg-gray-800"
+            className="group bg-gray-900 text-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center gap-2 rounded-full outline-none transition-all btn-glow dark:bg-gray-800"
             onClick={() => {
               setActiveSection("Contact");
               setTimeOfLastClick(Date.now());
@@ -169,7 +169,7 @@ export default function Intro() {
           initial="initial"
           whileHover="hover"
           whileTap="tap"
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none cursor-pointer border border-gray-300 dark:bg-white/10 dark:border-white/20"
+          className="group bg-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center gap-2 rounded-full outline-none cursor-pointer border border-gray-300 dark:bg-white/10 dark:border-white/20"
           href="/CV.pdf"
           download
         >
@@ -180,7 +180,7 @@ export default function Intro() {
 
       {/* Social Icons with Enhanced Hover */}
       <motion.div
-        className="flex items-center justify-center gap-4 mt-6"
+        className="flex items-center justify-center gap-2 sm:gap-4 mt-5 sm:mt-6 flex-wrap"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -200,7 +200,7 @@ export default function Intro() {
             initial="initial"
             whileHover="hover"
             whileTap="tap"
-            className="relative group bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full cursor-pointer border border-gray-300 hover:text-indigo-600 hover:border-indigo-300 dark:bg-white/10 dark:text-white/60 dark:hover:text-indigo-400 dark:hover:border-indigo-400/50 dark:border-white/20 transition-colors duration-300"
+            className="relative group bg-white p-3 sm:p-4 text-gray-700 flex items-center gap-2 text-lg sm:text-[1.35rem] rounded-full cursor-pointer border border-gray-300 hover:text-indigo-600 hover:border-indigo-300 dark:bg-white/10 dark:text-white/60 dark:hover:text-indigo-400 dark:hover:border-indigo-400/50 dark:border-white/20 transition-colors duration-300"
             href={href}
             target="_blank"
             rel="noopener noreferrer"
@@ -212,6 +212,6 @@ export default function Intro() {
           </motion.a>
         ))}
       </motion.div>
-    </section>
+    </section >
   );
 }

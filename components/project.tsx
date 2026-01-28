@@ -77,10 +77,10 @@ export default function Project({
             : undefined,
         }}
       >
-        <div className="pt-6 pb-8 px-6 sm:pl-10 sm:pr-1 sm:pt-12 sm:max-w-[68%] flex flex-col h-full sm:group-even:ml-[14rem] overflow-hidden relative">
+        <div className="pt-4 pb-6 px-4 sm:pt-6 sm:pb-8 sm:px-6 sm:pl-10 sm:pr-1 sm:pt-12 sm:max-w-[68%] flex flex-col h-full sm:group-even:ml-[14rem] overflow-hidden relative">
           {/* Title with hover effect */}
           <motion.h3
-            className="text-2xl font-semibold"
+            className="text-xl sm:text-2xl font-semibold"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -90,7 +90,7 @@ export default function Project({
           </motion.h3>
 
           {/* Tags with staggered animation */}
-          <ul className="flex flex-wrap gap-2 mt-2 mb-4">
+          <ul className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 mb-3 sm:mb-4">
             {tags.map((tag, index) => (
               <motion.li
                 key={index}
@@ -99,7 +99,7 @@ export default function Project({
                 whileInView="animate"
                 viewport={{ once: true }}
                 custom={index}
-                className="bg-gray-900 dark:bg-white/20 px-3 py-1 text-[0.6rem] uppercase tracking-wider text-white rounded-full font-medium hover:bg-indigo-600 dark:hover:bg-indigo-500 transition-colors duration-200"
+                className="bg-gray-900 dark:bg-white/20 px-2 sm:px-3 py-0.5 sm:py-1 text-[0.55rem] sm:text-[0.6rem] uppercase tracking-wider text-white rounded-full font-medium hover:bg-indigo-600 dark:hover:bg-indigo-500 transition-colors duration-200"
               >
                 {tag}
               </motion.li>
@@ -107,7 +107,7 @@ export default function Project({
           </ul>
 
           {/* Description */}
-          <div className="leading-relaxed text-gray-700 dark:text-white/70 flex-1 relative overflow-y-auto pr-2 custom-scrollbar">
+          <div className="leading-relaxed text-sm sm:text-base text-gray-700 dark:text-white/70 flex-1 relative overflow-y-auto pr-2 custom-scrollbar">
             <p>{description}</p>
           </div>
         </div>

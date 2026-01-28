@@ -40,7 +40,7 @@ export default function Contact() {
       <motion.section
         id="contact"
         ref={ref}
-        className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
+        className="mb-16 sm:mb-20 sm:mb-28 w-[min(100%,38rem)] text-center px-4 sm:px-0"
         variants={formVariants}
         initial="initial"
         whileInView="animate"
@@ -50,13 +50,13 @@ export default function Contact() {
 
         {/* Freelance MVP Pitch */}
         <motion.div
-          className="mb-8 p-6 bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-pink-500/5 dark:from-indigo-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-2xl border border-indigo-200/50 dark:border-indigo-500/20"
+          className="mb-6 sm:mb-8 p-4 sm:p-6 bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-pink-500/5 dark:from-indigo-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-2xl border border-indigo-200/50 dark:border-indigo-500/20"
           variants={inputVariants}
         >
-          <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+          <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900 dark:text-white">
             🚀 Got an idea? Let's build your MVP.
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
             I help founders and businesses go from <span className="font-semibold text-indigo-600 dark:text-indigo-400">0 → 1</span> with
             fast, scalable MVPs. Whether it's a <span className="font-medium">backend API</span>,
             <span className="font-medium"> AI-powered agent</span>, or
@@ -93,7 +93,7 @@ export default function Contact() {
         >
           <motion.input
             variants={inputVariants}
-            className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            className="h-12 sm:h-14 px-3 sm:px-4 text-sm sm:text-base rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             name="senderEmail"
             type="email"
             required
