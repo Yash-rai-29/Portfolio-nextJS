@@ -48,22 +48,6 @@ export default function Contact() {
       >
         <SectionHeading>Let's Build Together</SectionHeading>
 
-        {/* Freelance MVP Pitch */}
-        <motion.div
-          className="mb-6 sm:mb-8 p-4 sm:p-6 bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-pink-500/5 dark:from-indigo-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-2xl border border-indigo-200/50 dark:border-indigo-500/20"
-          variants={inputVariants}
-        >
-          <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-900 dark:text-white">
-            🚀 Got an idea? Let's build your MVP.
-          </h3>
-          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-            I help founders and businesses go from <span className="font-semibold text-indigo-600 dark:text-indigo-400">0 → 1</span> with
-            fast, scalable MVPs. Whether it's a <span className="font-medium">backend API</span>,
-            <span className="font-medium"> AI-powered agent</span>, or
-            <span className="font-medium"> data pipeline</span>, I deliver production-ready solutions on GCP.
-          </p>
-        </motion.div>
-
         <motion.p
           className="text-gray-700 -mt-2 mb-6 dark:text-white/80"
           variants={inputVariants}

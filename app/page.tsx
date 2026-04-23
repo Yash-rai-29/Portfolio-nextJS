@@ -1,10 +1,10 @@
 "use client";
 import About from "@/components/about";
+import Blog from "@/components/blog";
 import Contact from "@/components/contact";
 import Experience from "@/components/experience";
 import Intro from "@/components/intro";
 import Projects from "@/components/projects";
-import SectionDivider from "@/components/section-divider";
 import Skills from "@/components/skills";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { useEffect } from "react";
@@ -30,6 +30,8 @@ export default function Home() {
         return <Skills key="skills" />;
       case "Experience":
         return <Experience key="experience" />;
+      case "Blog":
+        return <Blog key="blog" />;
       case "Contact":
         return <Contact key="contact" />;
       default:
