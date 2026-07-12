@@ -6,167 +6,153 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { FaGithub } from "react-icons/fa";
+import { SiMedium } from "react-icons/si";
+import { BsArrowUpRight } from "react-icons/bs";
 
-type ProjectProps = (typeof projectsData)[number];
-
-const tagVariants = {
-  initial: { opacity: 0, scale: 0.8 },
-  animate: (i: number) => ({
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delay: 0.3 + i * 0.05,
-      duration: 0.3,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  }),
-};
+type ProjectProps = (typeof projectsData)[number] & { index: number };
 
 export default function Project({
+  index,
   title,
   description,
   tags,
   imageUrl,
   websiteUrl,
   sourceUrl,
+  mediumUrl,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hovered, setHovered] = useState(false);
 
+  // Scroll-driven entrance animation
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0 1", "1.33 1"],
+    offset: ["0 1", "1.1 1"],
   });
-
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.85, 1]);
-  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
-  const yProgress = useTransform(scrollYProgress, [0, 1], [50, 0]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    setMousePosition({ x, y });
-  };
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
   return (
-    <motion.div
+    <motion.article
       ref={ref}
-      style={{
-        scale: scaleProgress,
-        opacity: opacityProgress,
-        y: yProgress,
-      }}
-      className="group mb-6 sm:mb-12 last:mb-0"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
+      style={{ opacity, y }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`
+        group flex flex-col rounded-2xl overflow-hidden
+        bg-white dark:bg-gray-800
+        border border-black/5 dark:border-white/10
+        transition-all duration-300
+        ${hovered
+          ? "shadow-2xl shadow-indigo-500/10 dark:shadow-indigo-400/10 border-indigo-200/70 dark:border-indigo-500/30 -translate-y-1"
+          : "shadow-sm"
+        }
+      `}
     >
-      <section
-        className={`
-          bg-gray-100 max-w-[54rem] border border-black/5 rounded-xl overflow-hidden 
-          sm:pr-8 relative sm:h-[24rem] transition-all duration-500
-          sm:group-even:pl-8 dark:text-white dark:bg-white/10
-          ${isHovered ? 'shadow-2xl shadow-indigo-500/10 dark:shadow-indigo-400/5 border-indigo-200 dark:border-indigo-500/30' : ''}
-        `}
-        style={{
-          background: isHovered
-            ? `radial-gradient(600px circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(99, 102, 241, 0.06), transparent 40%)`
-            : undefined,
-        }}
-      >
-        <div className="pt-4 pb-6 px-4 sm:pt-6 sm:pb-8 sm:px-6 sm:pl-10 sm:pr-1 sm:pt-12 sm:max-w-[68%] flex flex-col h-full sm:group-even:ml-[14rem] overflow-hidden relative">
-          {/* Title with hover effect */}
-          <motion.h3
-            className="text-xl sm:text-2xl font-semibold"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {title}
-          </motion.h3>
+      {/* ── Image area ── */}
+      {imageUrl && (
+        <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
+          <Image
+            src={imageUrl}
+            alt={`${title} screenshot`}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={85}
+            className={`
+              object-cover object-top transition-transform duration-500 ease-out
+              ${hovered ? "scale-105" : "scale-100"}
+            `}
+          />
+          {/* Gradient overlay so tags are readable */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
-          {/* Tags with staggered animation */}
-          <ul className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 mb-3 sm:mb-4">
-            {tags.map((tag, index) => (
-              <motion.li
-                key={index}
-                variants={tagVariants}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                custom={index}
-                className="bg-gray-900 dark:bg-white/20 px-2 sm:px-3 py-0.5 sm:py-1 text-[0.55rem] sm:text-[0.6rem] uppercase tracking-wider text-white rounded-full font-medium hover:bg-indigo-600 dark:hover:bg-indigo-500 transition-colors duration-200"
+          {/* Tags pinned to image bottom */}
+          <ul className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
+            {tags.slice(0, 4).map((tag) => (
+              <li
+                key={tag}
+                className="bg-black/50 backdrop-blur-sm border border-white/15 text-white text-[0.55rem] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full"
               >
                 {tag}
-              </motion.li>
+              </li>
             ))}
+            {tags.length > 4 && (
+              <li className="bg-black/50 backdrop-blur-sm border border-white/15 text-white text-[0.55rem] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full">
+                +{tags.length - 4}
+              </li>
+            )}
           </ul>
-
-          {/* Description */}
-          <div className="leading-relaxed text-sm sm:text-base text-gray-700 dark:text-white/70 flex-1 relative overflow-y-auto pr-2 custom-scrollbar">
-            <p>{description}</p>
-          </div>
         </div>
+      )}
 
-        {/* Project Image with enhanced parallax */}
-        {imageUrl && (
-          <motion.div
-            className="absolute hidden sm:block top-10 -right-40 w-[25rem] group-even:right-[initial] group-even:-left-40"
-            style={{
-              x: isHovered ? (mousePosition.x - 0.5) * -20 : 0,
-              y: isHovered ? (mousePosition.y - 0.5) * -10 : 0,
-            }}
-            transition={{ type: "spring", stiffness: 150, damping: 15 }}
-          >
-            <Image
-              src={imageUrl}
-              alt={`${title} project image`}
-              quality={95}
-              className={`
-                rounded-t-lg shadow-2xl transition-all duration-500 ease-out
-                ${isHovered
-                  ? 'scale-[1.08] -translate-x-6 translate-y-4 -rotate-3 group-even:translate-x-6 group-even:rotate-3'
-                  : 'scale-100'
-                }
-              `}
-            />
-          </motion.div>
-        )}
+      {/* ── Content area ── */}
+      <div className="flex flex-col flex-1 p-5">
+        {/* Title */}
+        <h3 className="text-base font-bold text-gray-900 dark:text-white mb-2 leading-snug line-clamp-2">
+          {title}
+        </h3>
 
-        {/* Action Buttons */}
-        <div className={`mt-4 flex space-x-3 px-6 pb-6 sm:absolute sm:bottom-6 ${imageUrl ? 'sm:left-10' : 'sm:left-0'} sm:space-x-4 sm:px-0 md:group-odd:ml-[36rem]`}>
+        {/* Description — flex-1 so buttons always sit at bottom */}
+        <p className="text-sm text-gray-500 dark:text-gray-300 leading-relaxed line-clamp-3 flex-1 mb-4">
+          {description}
+        </p>
+
+        {/* ── Action buttons ── */}
+        <div className="flex flex-wrap gap-2 mt-auto">
+          {/* Case Study (Medium) */}
+          {mediumUrl && (
+            <motion.a
+              href={mediumUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-gray-900 dark:bg-white/10 text-white text-xs font-semibold rounded-lg hover:bg-[#00ab6c] dark:hover:bg-[#00ab6c] transition-colors duration-200"
+            >
+              <SiMedium className="text-sm" />
+              Case Study
+              <BsArrowUpRight className="text-[10px] opacity-70" />
+            </motion.a>
+          )}
+
+          {/* Website */}
           {websiteUrl && (
             <motion.a
               href={websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gray-900 dark:bg-white/20 text-white text-sm rounded-lg transition-all duration-300 flex items-center gap-2 hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:shadow-lg hover:shadow-indigo-500/30"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-lg transition-colors duration-200"
             >
-              <AiOutlineGlobal className="text-lg" />
-              <span>Website</span>
+              <AiOutlineGlobal className="text-sm" />
+              Website
             </motion.a>
           )}
+
+          {/* Source */}
           {sourceUrl && (
             <motion.a
               href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gray-900 dark:bg-white/20 text-white text-sm rounded-lg transition-all duration-300 flex items-center gap-2 hover:bg-gray-700 dark:hover:bg-white/30 hover:shadow-lg"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-gray-200 dark:bg-white/10 text-gray-800 dark:text-white text-xs font-semibold rounded-lg hover:bg-gray-300 dark:hover:bg-white/20 transition-colors duration-200"
             >
-              <FaGithub className="text-lg" />
-              <span>Source</span>
+              <FaGithub className="text-sm" />
+              Source
             </motion.a>
           )}
+
+          {/* NDA badge — only when all links are absent */}
+          {!mediumUrl && !websiteUrl && !sourceUrl && (
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-700/40 text-xs font-semibold rounded-lg select-none">
+              🔒 Confidential · NDA
+            </span>
+          )}
         </div>
-      </section>
-    </motion.div>
+      </div>
+    </motion.article>
   );
 }

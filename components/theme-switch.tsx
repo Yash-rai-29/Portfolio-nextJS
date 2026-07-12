@@ -26,7 +26,7 @@ export default function ThemeSwitch() {
 
   return (
     <motion.button
-      className="fixed bottom-5 right-5 bg-white w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950 dark:border-gray-800 overflow-hidden"
+      className="fixed top-2.5 right-14 sm:top-6 sm:right-6 bg-white w-[2.25rem] h-[2.25rem] sm:w-[3rem] sm:h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950 dark:border-gray-800 overflow-hidden z-[100]"
       onClick={toggleTheme}
       whileHover={{
         scale: 1.1,

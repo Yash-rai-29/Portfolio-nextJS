@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BsArrowRight, BsLinkedin } from "react-icons/bs";
+import { BsArrowRight, BsLinkedin, BsCalendar3 } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare, FaInstagram, FaTwitter } from "react-icons/fa";
 import { SiSubstack } from "react-icons/si";
@@ -169,6 +169,20 @@ export default function Intro() {
           initial="initial"
           whileHover="hover"
           whileTap="tap"
+          className="group bg-indigo-600 text-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center gap-2 rounded-full outline-none cursor-pointer hover:bg-indigo-700 transition-all duration-300 border border-transparent shadow-md hover:shadow-indigo-500/20 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+          href="https://calendly.com/yashraixdev/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Schedule Call{" "}
+          <BsCalendar3 className="opacity-80 group-hover:scale-110 transition-all duration-300" />
+        </motion.a>
+
+        <motion.a
+          variants={buttonVariants}
+          initial="initial"
+          whileHover="hover"
+          whileTap="tap"
           className="group bg-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center gap-2 rounded-full outline-none cursor-pointer border border-gray-300 dark:bg-white/10 dark:border-white/20"
           href="/CV.pdf"
           download
@@ -188,11 +202,11 @@ export default function Intro() {
         }}
       >
         {[
-          { href: "https://linkedin.com/in/yashrai1224", Icon: BsLinkedin, label: "LinkedIn" },
+          { href: "https://www.linkedin.com/in/yashraixdev/", Icon: BsLinkedin, label: "LinkedIn" },
           { href: "https://github.com/Yash-rai-29", Icon: FaGithubSquare, label: "GitHub" },
           { href: "https://yashdev.substack.com", Icon: SiSubstack, label: "Newsletter" },
-          { href: "https://www.instagram.com/yashrai_29", Icon: FaInstagram, label: "Instagram" },
-          { href: "https://twitter.com/YashRai1224", Icon: FaTwitter, label: "Twitter" },
+          { href: "https://www.instagram.com/yashraixdev/", Icon: FaInstagram, label: "Instagram" },
+          { href: "https://x.com/yashraixdev", Icon: FaTwitter, label: "Twitter" },
         ].map(({ href, Icon, label }, index) => (
           <motion.a
             key={label}

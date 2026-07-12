@@ -1,8 +1,5 @@
 import React from "react";
-import etl from "@/public/etl.png";
-import dataform from "@/public/dataform.webp";
-import url from "@/public/url.png";
-import cloudcertify from "@/public/cloudcertify.png"
+
 
 export const links = [
   {
@@ -85,40 +82,64 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "TestSpec-AI — Automated API Testing Platform",
+    description:
+      "An AI-powered testing platform for FastAPI and OpenAPI endpoints. Users can dynamically generate, execute, and schedule test cases by simply providing a ReDoc link or OpenAPI schema. Features include automated test generation, custom workflow creation, detailed test summaries, and an integrated AI chatbot for testing assistance.",
+    tags: ["Next.js", "FastAPI", "Google Cloud Platform", "Vertex AI", "Python", "TypeScript"],
+    imageUrl: "/testspec.png",
+    websiteUrl: "https://www.testspec.tech/",
+    sourceUrl: null,
+    mediumUrl: "https://app.notion.com/p/TestSpec-AI-Building-a-Production-Grade-Event-Driven-API-Testing-Monitoring-Platform-39b8fb58862680578d57e08669dbeb74?source=copy_link",
+  },
+  {
     title: "CloudCertify – GCP Certification Companion",
     description:
-      "CloudCertify is your smart companion for Google Cloud certification prep. It offers daily practice quizzes, full-length mock tests, performance tracking, and curated resources all in one seamless platform. Built with a modern full-stack approach, the app uses Firebase for authentication and hosting, FastAPI for backend APIs deployed on Cloud Run, and Elasticsearch for fast search and analytics. The UI, developed in Next.js, ensures a responsive and intuitive user experience. CloudCertify helps users prepare consistently and pass GCP exams with confidence.",
-    tags: ["Next.js", "Firebase", "FastAPI", "Cloud Run", "Elasticsearch", "Firestore", "JavaScript", "GCP"],
-    imageUrl: cloudcertify, // Make sure to define/import this image
+      "CloudCertify is your smart companion for Google Cloud certification prep. It offers daily practice quizzes, full-length mock tests, performance tracking, and curated resources all in one seamless platform. Built with a modern full-stack approach using Firebase, FastAPI on Cloud Run, Elasticsearch for fast search, and Next.js for a responsive intuitive UI.",
+    tags: ["Next.js", "Firebase", "FastAPI", "Cloud Run", "Elasticsearch", "Firestore", "GCP"],
+    imageUrl: "/cloudcertify.png",
     websiteUrl: "https://cloudcertify.web.app/",
     sourceUrl: null,
+    mediumUrl: "https://app.notion.com/p/CloudCertify-GCP-Certification-Companion-39b8fb58862680debd8fe4dbcb07b9ef?source=copy_link",
   },
+  {
+    title: "Maya AI — Devotional AI Chat & Voice Assistant",
+    description:
+      "A devotional AI chatbot inspired by the Bhagavad Gita, enabling users to interact via text and voice calls in both Hindi and English. Built to provide context-aware responses based on spiritual teachings using RAG over curated scriptures and ElevenLabs for real-time voice synthesis.",
+    tags: ["Next.js", "FastAPI", "Google Cloud Platform", "ElevenLabs AI", "Python", "TypeScript"],
+    imageUrl: "/maya.png",
+    websiteUrl: "https://maya-ai-one.vercel.app/",
+    sourceUrl: null,
+    mediumUrl: "https://app.notion.com/p/Maya-AI-39b8fb5886268012a9ecf2c32b6c91a8?source=copy_link",
+  },
+  // {
+  //   title: "JobOrbit — AI-Powered Job Search Platform",
+  //   description:
+  //     "A smart job discovery platform that aggregates all publicly available job listings in one place. Powered by AI-driven semantic search, JobOrbit lets you find the most relevant roles using natural language queries, smart filters, and personalised job recommendations — far beyond keyword matching.",
+  //   tags: ["Next.js", "FastAPI", "Vertex AI", "Elasticsearch", "Python", "TypeScript", "GCP"],
+  //   imageUrl: "/testspec.png",
+  //   websiteUrl: null,
+  //   sourceUrl: null,
+  //   mediumUrl: "https://medium.com/@yashraixdev",
+  // },
   {
     title: "Real-Time Streaming Data Pipeline",
     description:
-      "Designed and implemented a robust real-time streaming data pipeline using Python, Apache Beam, Google Cloud Pub/Sub, Apache Kafka, BigQuery, and Bigtable. The pipeline was engineered to handle a dynamic range of 20–25 topics sourced from Apache Kafka via Google Pub/Sub, ensuring efficient data ingestion and processing. Utilizing Apache Beam, I developed transformation and cleansing processes to ensure high-quality data before storage. The entire pipeline was deployed and monitored on Google Dataflow for seamless real-time processing.",
-    tags: ["Python", "Apache Beam", "Google Cloud", "BigQuery", "Bigtable", "Real-Time Data", "Data Engineering"],
-    imageUrl: etl,
+      "Designed and implemented a robust real-time streaming data pipeline processing 5M+ events daily across 20–25 Kafka topics. Built with Apache Beam on Google Dataflow, ingesting from Pub/Sub into BigQuery and Bigtable with sub-second latency. Reduced data handling costs by 10%.",
+    tags: ["Python", "Apache Beam", "Google Cloud", "BigQuery", "Bigtable", "Kafka", "Dataflow"],
+    imageUrl: "/etl.png",
     websiteUrl: null,
     sourceUrl: null,
+    mediumUrl: null,
   },
   {
     title: "Raw Data to Incremental Table",
     description:
-      "Engineered and automated a data pipeline using Google Dataform and BigQuery to transform raw datasets into incremental views for analytics. The pipeline extracts and transforms data from diverse sources and joins multiple views to enable rich, structured reporting. This automation ensures timely, consistent, and accurate data availability aligned with business goals, improving strategic data-driven decisions.",
-    tags: ["Google Dataform", "BigQuery", "Data Transformation", "Data Analytics", "Automation"],
-    imageUrl: dataform,
+      "Engineered an automated data transformation pipeline using Google Dataform and BigQuery SQLX to convert raw event data into incremental analytical tables. Reduced query times by 30% and significantly improved Looker dashboard performance through incremental MERGE-based processing.",
+    tags: ["Google Dataform", "BigQuery", "SQLX", "Data Transformation", "Looker", "Automation"],
+    imageUrl: "/dataform.webp",
     websiteUrl: null,
     sourceUrl: null,
-  },
-  {
-    title: "URL Shortener Generator",
-    description:
-      "Built a full-stack URL shortener service with Node.js, Firebase, ReactJS, and Tailwind CSS. Integrated user authentication and authorization with Firebase and designed a scalable Firebase database schema to manage URLs. The front-end, built with ReactJS and styled using Tailwind CSS, delivers a responsive and user-friendly interface for creating and managing short links.",
-    tags: ["Node.js", "Firebase", "ReactJS", "Tailwind CSS", "URL Shortener", "Authentication", "Database Management"],
-    imageUrl: url,
-    websiteUrl: "https://url-shortener-seven-rho.vercel.app",
-    sourceUrl: "https://github.com/Yash-rai-29/URL-Shortener",
+    mediumUrl: null,
   },
 ] as const;
 
