@@ -9,6 +9,9 @@ export const validateString = (
   return true;
 };
 
+export const isValidEmail = (value: string): boolean =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
 export const getErrorMessage = (error: unknown): string => {
   let message: string;
 

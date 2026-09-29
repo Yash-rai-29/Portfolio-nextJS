@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { links } from "@/lib/data";
 import Link from "next/link";
@@ -8,6 +8,10 @@ import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import type { SectionName } from "@/lib/types";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+
+// Tailwind's `md` breakpoint. The desktop nav is too wide to sit beside the
+// theme toggle below this width, so the mobile bar is used instead.
+const DESKTOP_MIN_WIDTH = 768;
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
@@ -20,12 +24,37 @@ export default function Header() {
     setMobileOpen(false);
   };
 
+  // While the menu is open: lock page scroll, close on Escape, and close if
+  // the viewport grows into the desktop layout.
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    const onResize = () => {
+      if (window.innerWidth >= DESKTOP_MIN_WIDTH) setMobileOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [mobileOpen]);
+
   return (
     <header>
       <motion.nav
         aria-label="Desktop navigation"
         className="
-          hidden sm:flex items-center
+          hidden md:flex items-center
           fixed top-6 left-1/2 -translate-x-1/2
           h-[3.5rem] px-2
           rounded-full
@@ -57,12 +86,13 @@ export default function Header() {
               >
                 <Link
                   href={link.hash}
+                  aria-current={isActive ? "page" : undefined}
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(link.name);
                   }}
                   className={clsx(
-                    "relative flex items-center justify-center rounded-full px-4 py-2.5 whitespace-nowrap select-none transition-[color,transform] duration-200",
+                    "relative flex items-center justify-center rounded-full px-3 lg:px-4 py-2.5 whitespace-nowrap select-none transition-[color,transform] duration-200",
                     isActive
                       ? "text-indigo-700 dark:text-indigo-300"
                       : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
@@ -87,7 +117,7 @@ export default function Header() {
 
       <motion.div
         className="
-          sm:hidden fixed top-0 left-0 right-0
+          md:hidden fixed top-0 left-0 right-0
           h-14 px-4
           flex items-center justify-between
           bg-white/85 dark:bg-gray-950/85
@@ -115,10 +145,11 @@ export default function Header() {
 
         <motion.button
           onClick={() => setMobileOpen((o) => !o)}
-          className="rounded-xl p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+          className="flex h-11 w-11 items-center justify-center rounded-xl text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
           whileTap={{ scale: 0.92 }}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           <AnimatePresence mode="wait" initial={false}>
             {mobileOpen ? (
@@ -152,13 +183,14 @@ export default function Header() {
         {mobileOpen && (
           <>
             <motion.div
+              id="mobile-menu"
               className="
-                sm:hidden fixed top-14 left-0 right-0
+                md:hidden fixed top-14 left-0 right-0
+                max-h-[calc(100vh-3.5rem)] overflow-y-auto
                 bg-white/[0.98] dark:bg-gray-950/[0.98]
                 backdrop-blur-lg
                 border-b border-black/5 dark:border-white/10
                 shadow-2xl shadow-black/10
-                overflow-hidden
                 z-[49]
               "
               initial={{ opacity: 0, height: 0 }}
@@ -183,6 +215,7 @@ export default function Header() {
                     >
                       <Link
                         href={link.hash}
+                        aria-current={isActive ? "page" : undefined}
                         onClick={(e) => {
                           e.preventDefault();
                           handleNavClick(link.name);
@@ -206,7 +239,7 @@ export default function Header() {
             </motion.div>
 
             <motion.div
-              className="sm:hidden fixed inset-0 top-14 bg-black/20 z-[48]"
+              className="md:hidden fixed inset-0 top-14 bg-black/20 z-[48]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

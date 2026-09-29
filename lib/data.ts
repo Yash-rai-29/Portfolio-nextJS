@@ -1,5 +1,5 @@
 import React from "react";
-
+import type { ProjectData } from "./types";
 
 export const links = [
   {
@@ -40,7 +40,7 @@ export const experiencesData = [
       "Architected and deployed 4+ end-to-end scalable MVP backend solutions using FastAPI and Python for high-growth clients including Funzy, Hellow, and Gentoo. Integrated 7+ third-party services (Auth0, Stripe, Mailchimp, Mixpanel, Google Places API) enhancing user engagement and payment workflows. Optimized data management using Firestore and Cloud Storage with containerized microservices on Cloud Run achieving 99.9% uptime. Orchestrated large-scale data migrations (50+ TB) using GCP Transfer Service with zero data loss. Engineered 3+ production-grade Google ADK agents on Vertex AI, including a multi-agent system for Wesfarmers with A2A communication that automated report generation, reducing manual documentation effort by 70%. Built RAG-based RFP Agent using ADK and Vertex AI Vector Search, improving proposal accuracy by 60%.",
     icon: React.createElement(
       'img',
-      { src: './aviato_consulting_logo.jpeg', alt: 'Icon' }
+      { src: '/aviato_consulting_logo.jpeg', alt: 'Aviato Consulting logo' }
     ),
     date: "July 2024 – Present",
   },
@@ -51,7 +51,7 @@ export const experiencesData = [
       "Designed and implemented an advanced Customer Data Platform (CDP) web application using React.js and Node.js, improving user data management efficiency by 35%. Integrated Bigtable for efficient event data retrieval with time-range filters, processing 10+ million queries monthly with sub-second latency. Built a real-time event pipeline ETL using Python and Apache Beam, processing over 5 million user events daily from Pub/Sub to BigQuery and Bigtable, reducing data handling costs by 10%. Developed ETL processes using Google Dataform and SQLX to transform raw data into incremental tables, reducing query times by 30% and improving Looker dashboard performance.",
     icon: React.createElement(
       'img',
-      { src: './tryclarity_logo.jpeg', alt: 'Icon' }
+      { src: '/tryclarity_logo.jpeg', alt: 'Clarity logo' }
     ),
     date: "Jan 2024 – Jun 2024",
   },
@@ -62,7 +62,7 @@ export const experiencesData = [
       "At BinPlus Technologies from November 2023 to January 2024, I played a pivotal role as a UI/UX Developer Intern. I contributed to a casino game project by integrating Socket.IO components, enabling seamless real-time gameplay connectivity. Leveraging React, I developed interactive components that enhanced online gameplay interactions. Furthermore, I designed and developed a betting website from scratch, integrating various APIs to support dynamic user management functionalities. I also implemented robust authentication and authorization mechanisms using Node.js, ensuring secure API endpoints with token-based authentication.",
     icon: React.createElement(
       'img',
-      { src: './binplus_logo.jpeg', alt: 'Icon' }
+      { src: '/binplus_logo.jpeg', alt: 'BinPlus Technologies logo' }
     ),
     date: "Nov 2023 – Jan 2024",
   },
@@ -73,14 +73,14 @@ export const experiencesData = [
       "During my tenure as a Web Developer Intern at Abhyaz from December 2022 to May 2023, I focused on maintaining and developing dynamic and responsive web applications on the Zoho platform. I successfully managed and enhanced three different websites, utilizing Zoho Sites to implement features such as forms, calendar event markers, and various interactive elements. My contributions significantly improved user experience across these platforms, demonstrating my proficiency in web development and UI/UX design principles.",
     icon: React.createElement(
       'img',
-      { src: './abhyazlearning_logo.jpeg', alt: 'Icon' }
+      { src: '/abhyazlearning_logo.jpeg', alt: 'Abhyaz logo' }
     ),
     // icon: React.createElement(IoLogoHtml5),
     date: "Dec 2022 – May 2023",
   },
 ] as const;
 
-export const projectsData = [
+export const projectsData: ProjectData[] = [
   {
     title: "TestSpec-AI — Automated API Testing Platform",
     description:
@@ -89,7 +89,7 @@ export const projectsData = [
     imageUrl: "/testspec.png",
     websiteUrl: "https://www.testspec.tech/",
     sourceUrl: null,
-    mediumUrl: "https://app.notion.com/p/TestSpec-AI-Building-a-Production-Grade-Event-Driven-API-Testing-Monitoring-Platform-39b8fb58862680578d57e08669dbeb74?source=copy_link",
+    caseStudyUrl: "https://app.notion.com/p/TestSpec-AI-Building-a-Production-Grade-Event-Driven-API-Testing-Monitoring-Platform-39b8fb58862680578d57e08669dbeb74?source=copy_link",
   },
   {
     title: "CloudCertify – GCP Certification Companion",
@@ -99,7 +99,7 @@ export const projectsData = [
     imageUrl: "/cloudcertify.png",
     websiteUrl: "https://cloudcertify.web.app/",
     sourceUrl: null,
-    mediumUrl: "https://app.notion.com/p/CloudCertify-GCP-Certification-Companion-39b8fb58862680debd8fe4dbcb07b9ef?source=copy_link",
+    caseStudyUrl: "https://app.notion.com/p/CloudCertify-GCP-Certification-Companion-39b8fb58862680debd8fe4dbcb07b9ef?source=copy_link",
   },
   {
     title: "Maya AI — Devotional AI Chat & Voice Assistant",
@@ -109,17 +109,19 @@ export const projectsData = [
     imageUrl: "/maya.png",
     websiteUrl: "https://maya-ai-one.vercel.app/",
     sourceUrl: null,
-    mediumUrl: "https://app.notion.com/p/Maya-AI-39b8fb5886268012a9ecf2c32b6c91a8?source=copy_link",
+    caseStudyUrl: "https://app.notion.com/p/Maya-AI-39b8fb5886268012a9ecf2c32b6c91a8?source=copy_link",
   },
   // {
   //   title: "JobOrbit — AI-Powered Job Search Platform",
   //   description:
   //     "A smart job discovery platform that aggregates all publicly available job listings in one place. Powered by AI-driven semantic search, JobOrbit lets you find the most relevant roles using natural language queries, smart filters, and personalised job recommendations — far beyond keyword matching.",
   //   tags: ["Next.js", "FastAPI", "Vertex AI", "Elasticsearch", "Python", "TypeScript", "GCP"],
-  //   imageUrl: "/testspec.png",
+  //   // TODO: add a JobOrbit screenshot (e.g. /joborbit.png) and its case study or site link.
+  //   imageUrl: null,
   //   websiteUrl: null,
   //   sourceUrl: null,
-  //   mediumUrl: "https://medium.com/@yashraixdev",
+  //   caseStudyUrl: null,
+  //   emptyLinksLabel: "Details coming soon",
   // },
   {
     title: "Real-Time Streaming Data Pipeline",
@@ -129,7 +131,7 @@ export const projectsData = [
     imageUrl: "/etl.png",
     websiteUrl: null,
     sourceUrl: null,
-    mediumUrl: null,
+    caseStudyUrl: null,
   },
   {
     title: "Raw Data to Incremental Table",
@@ -139,9 +141,9 @@ export const projectsData = [
     imageUrl: "/dataform.webp",
     websiteUrl: null,
     sourceUrl: null,
-    mediumUrl: null,
+    caseStudyUrl: null,
   },
-] as const;
+];
 
 export const skillsData = [
   // Programming Languages
@@ -190,4 +192,3 @@ export const skillsData = [
   "CI/CD",
   "Agile",
 ] as const;
-

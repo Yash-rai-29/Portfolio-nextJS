@@ -12,10 +12,15 @@ type SubstackPost = {
   postTags?: SubstackTag[];
 };
 
+// Without this, Next 13 evaluates a GET handler once at build time and the
+// feed would never pick up new Substack posts until the next deploy.
+export const revalidate = 3600;
+
 export async function GET() {
   try {
     const res = await fetch(
-      "https://yashdev.substack.com/api/v1/posts?limit=12&offset=0"
+      "https://yashdev.substack.com/api/v1/posts?limit=12&offset=0",
+      { next: { revalidate: 3600 } }
     );
 
     if (!res.ok) throw new Error(`Substack API responded with ${res.status}`);

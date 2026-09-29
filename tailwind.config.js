@@ -16,4 +16,9 @@ module.exports = {
   },
   plugins: [],
   darkMode: "class",
+  // Only apply hover: styles on devices that can actually hover, so taps on
+  // touch screens do not leave elements stuck in their hover state.
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 };

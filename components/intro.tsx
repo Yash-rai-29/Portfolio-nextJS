@@ -47,7 +47,7 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-20 sm:mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] px-3 sm:p-4 pt-24 sm:pt-4"
+      className="mb-20 sm:mb-28 max-w-[50rem] text-center sm:p-4"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -108,7 +108,7 @@ export default function Intro() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="mb-10 mt-4 px-4"
+        className="mb-10 mt-4 sm:px-4"
       >
         {/* GCP Certification Badge */}
         <motion.div
@@ -119,11 +119,11 @@ export default function Intro() {
           <span className="text-xs sm:text-sm font-semibold text-blue-700 dark:text-blue-300">GCP Professional Data Engineer Certified</span>
         </motion.div>
 
-        <motion.h1
+        <motion.p
           variants={fadeInUp}
           className="text-base sm:text-lg md:text-xl font-medium !leading-[1.5]"
         >
-          <span className="font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-300 dark:to-white bg-clip-text">
+          <span className="font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-300 dark:to-white bg-clip-text text-transparent">
             Hello, I'm Yash Rai.
           </span>{" "}
           I'm a{" "}
@@ -132,12 +132,12 @@ export default function Intro() {
           <span className="font-bold">AI/ML agents</span>, and{" "}
           <span className="font-bold">data pipelines</span>. I help startups and businesses build
           production-grade systems on Google Cloud Platform.
-        </motion.h1>
+        </motion.p>
       </motion.div>
 
       {/* Action Buttons */}
       <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"
+        className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:px-4 text-lg font-medium"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -150,11 +150,13 @@ export default function Intro() {
           initial="initial"
           whileHover="hover"
           whileTap="tap"
+          className="w-full max-w-xs sm:w-auto sm:max-w-none"
         >
           <Link
             href="#contact"
-            className="group bg-gray-900 text-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center gap-2 rounded-full outline-none transition-all btn-glow dark:bg-gray-800"
-            onClick={() => {
+            className="group bg-gray-900 text-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center justify-center gap-2 rounded-full outline-none transition-all btn-glow dark:bg-gray-800"
+            onClick={(e) => {
+              e.preventDefault();
               setActiveSection("Contact");
               setTimeOfLastClick(Date.now());
             }}
@@ -169,7 +171,7 @@ export default function Intro() {
           initial="initial"
           whileHover="hover"
           whileTap="tap"
-          className="group bg-indigo-600 text-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center gap-2 rounded-full outline-none cursor-pointer hover:bg-indigo-700 transition-all duration-300 border border-transparent shadow-md hover:shadow-indigo-500/20 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+          className="group w-full max-w-xs sm:w-auto sm:max-w-none bg-indigo-600 text-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center justify-center gap-2 rounded-full outline-none cursor-pointer hover:bg-indigo-700 transition-all duration-300 border border-transparent shadow-md hover:shadow-indigo-500/20 dark:bg-indigo-500 dark:hover:bg-indigo-600"
           href="https://calendly.com/yashraixdev/30min"
           target="_blank"
           rel="noopener noreferrer"
@@ -183,7 +185,7 @@ export default function Intro() {
           initial="initial"
           whileHover="hover"
           whileTap="tap"
-          className="group bg-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center gap-2 rounded-full outline-none cursor-pointer border border-gray-300 dark:bg-white/10 dark:border-white/20"
+          className="group w-full max-w-xs sm:w-auto sm:max-w-none bg-white px-5 sm:px-7 py-2.5 sm:py-3 text-sm sm:text-base flex items-center justify-center gap-2 rounded-full outline-none cursor-pointer border border-gray-300 dark:bg-white/10 dark:border-white/20"
           href="/CV.pdf"
           download
         >
@@ -218,9 +220,10 @@ export default function Intro() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={label}
           >
             <Icon />
-            <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-gray-800 dark:bg-gray-700 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+            <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-gray-800 dark:bg-gray-700 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
               {label}
             </span>
           </motion.a>

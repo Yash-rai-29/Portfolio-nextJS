@@ -210,6 +210,32 @@ export const sectionVariants: Variants = {
   },
 };
 
+// Direction-aware version used when scrolling or navigating between sections:
+// `direction` is 1 when moving forward (new section enters from below) and
+// -1 when moving back (enters from above).
+const SECTION_TRAVEL = 48;
+
+export const directionalSectionVariants: Variants = {
+  initial: (direction: number) => ({
+    opacity: 0,
+    y: direction >= 0 ? SECTION_TRAVEL : -SECTION_TRAVEL,
+  }),
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+      ease: easings.easeOutExpo,
+      staggerChildren: 0.06,
+    },
+  },
+  exit: (direction: number) => ({
+    opacity: 0,
+    y: direction >= 0 ? -SECTION_TRAVEL : SECTION_TRAVEL,
+    transition: { duration: 0.2, ease: "easeIn" },
+  }),
+};
+
 // ============================================
 // Text Reveal Variants
 // ============================================

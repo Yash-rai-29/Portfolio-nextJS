@@ -31,6 +31,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Edge swipes change section, so stop the browser's pull-to-refresh and
+   rubber-band from also reacting to them. */
+html,
+body {
+  overscroll-behavior-y: none;
+}
+
 .borderBlack {
   @apply border border-black/10;
 }
@@ -55,11 +62,28 @@ html {
 
 .animate-blob {
   animation: blob-float 20s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-blob-delay {
   animation: blob-float 25s ease-in-out infinite;
   animation-delay: -5s;
+  will-change: transform;
+}
+
+/* Page content fills the screen below the fixed header (matches the body's
+   top padding), so the Contact footer can sit at the bottom of the screen.
+   The vh line is the fallback for browsers without dvh. */
+.page-min-h {
+  min-height: calc(100vh - 5rem);
+  min-height: calc(100dvh - 5rem);
+}
+
+@media (min-width: 768px) {
+  .page-min-h {
+    min-height: calc(100vh - 9rem);
+    min-height: calc(100dvh - 9rem);
+  }
 }
 
 /* ============================================
@@ -255,4 +279,49 @@ html.transitioning * {
 .btn-glow:hover::before {
   width: 300px;
   height: 300px;
+}
+
+/* ============================================
+   Mobile performance
+   ============================================ */
+@media (max-width: 767px) {
+  /* Large blurred layers animating on phones cause jank and battery drain. */
+  .animate-blob,
+  .animate-blob-delay {
+    animation: none;
+  }
+}
+
+/* ============================================
+   Experience timeline spacing
+   ============================================ */
+.vertical-timeline .vertical-timeline-element-content {
+  padding: 1.1rem 1rem;
+}
+
+@media (min-width: 1170px) {
+  .vertical-timeline .vertical-timeline-element-content {
+    padding: 1.3rem 2rem;
+  }
+}
+
+/* ============================================
+   Reduced motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .animate-blob,
+  .animate-blob-delay,
+  .animate-gradient,
+  .animate-glow,
+  .animate-float,
+  .animate-float-slow,
+  .animate-float-delay,
+  .animate-pulse,
+  .animate-rainbow-border:hover {
+    animation: none !important;
+  }
 }

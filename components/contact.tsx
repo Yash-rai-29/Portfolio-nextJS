@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
@@ -34,13 +34,15 @@ const inputVariants = {
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+  const formRef = useRef<HTMLFormElement>(null);
 
   return (
-    <>
+    // Fills the page so the footer can sit at the bottom of the screen.
+    <div className="flex w-full flex-1 flex-col items-center">
       <motion.section
         id="contact"
         ref={ref}
-        className="mb-16 sm:mb-20 sm:mb-28 w-[min(100%,38rem)] text-center px-4 sm:px-0"
+        className="mb-12 w-[min(100%,38rem)] text-center"
         variants={formVariants}
         initial="initial"
         whileInView="animate"
@@ -63,9 +65,10 @@ export default function Contact() {
         </motion.p>
 
         <form
-          className="flex flex-col dark:text-black"
+          ref={formRef}
+          className="relative flex flex-col dark:text-black"
           action={async (formData) => {
-            const { data, error } = await sendEmail(formData);
+            const { error } = await sendEmail(formData);
 
             if (error) {
               toast.error(error);
@@ -73,17 +76,26 @@ export default function Contact() {
             }
 
             toast.success("Email sent successfully!");
+            formRef.current?.reset();
           }}
         >
+          {/* Honeypot: hidden from people, filled in by simple bots. */}
+          <input
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9999px] h-0 w-0 opacity-0"
+          />
           <motion.input
             variants={inputVariants}
-            className="h-12 sm:h-14 px-3 sm:px-4 text-sm sm:text-base rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            className="h-12 sm:h-14 px-3 sm:px-4 text-base rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             name="senderEmail"
             type="email"
             required
             maxLength={500}
             placeholder="Your email"
-            whileFocus={{ scale: 1.02 }}
           />
           <motion.textarea
             variants={inputVariants}
@@ -92,7 +104,6 @@ export default function Contact() {
             placeholder="Tell me about your project idea..."
             required
             maxLength={5000}
-            whileFocus={{ scale: 1.01 }}
           />
           <motion.div variants={inputVariants}>
             <SubmitBtn />
@@ -100,6 +111,6 @@ export default function Contact() {
         </form>
       </motion.section>
       <Footer />
-    </>
+    </div>
   );
 }

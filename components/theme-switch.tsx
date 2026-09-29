@@ -26,7 +26,11 @@ export default function ThemeSwitch() {
 
   return (
     <motion.button
-      className="fixed top-2.5 right-14 sm:top-6 sm:right-6 bg-white w-[2.25rem] h-[2.25rem] sm:w-[3rem] sm:h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950 dark:border-gray-800 overflow-hidden z-[100]"
+      type="button"
+      aria-label={
+        theme === "light" ? "Switch to dark theme" : "Switch to light theme"
+      }
+      className="fixed top-1.5 right-[4.25rem] md:top-6 md:right-6 bg-white w-11 h-11 md:w-12 md:h-12 bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950 dark:border-gray-800 overflow-hidden z-[100]"
       onClick={toggleTheme}
       whileHover={{
         scale: 1.1,

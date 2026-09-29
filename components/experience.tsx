@@ -23,7 +23,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 mb-20 sm:mb-28 sm:mb-40 px-2 sm:px-0">
+    <section id="experience" ref={ref} className="mb-20 sm:mb-28">
       <SectionHeading>My experience</SectionHeading>
       <VerticalTimeline lineColor="">
         {experiencesData.map((item, index) => (
@@ -35,7 +35,6 @@ const Experience = () => {
               boxShadow: "none",
               border: "1px solid rgba(0, 0, 0, 0.05)",
               textAlign: "left",
-              padding: "1.3rem 2rem",
             }}
             contentArrowStyle={{
               borderRight:
@@ -47,8 +46,6 @@ const Experience = () => {
             icon={item.icon}
             iconStyle={{
               background: theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
-              width: '60px', // Adjust size as needed
-              height: '60px', // Adjust size as needed
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
@@ -61,6 +58,7 @@ const Experience = () => {
             {item.description && (
               <motion.button
                 onClick={() => toggleDescription(index)}
+                aria-expanded={openDescriptionIndex === index}
                 className="mt-2 inline-flex items-center gap-1.5 px-2 py-1 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-500/20 transition-all duration-200"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

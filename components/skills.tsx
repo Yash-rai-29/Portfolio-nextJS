@@ -39,7 +39,10 @@ function SkillItem({ skill, index }: { skill: string; index: number }) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLLIElement>) => {
+  // Tilt and hover effects are for mouse only; taps should not leave the
+  // chip stuck in its hovered state.
+  const handleMouseMove = (e: React.PointerEvent<HTMLLIElement>) => {
+    if (e.pointerType !== "mouse") return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -60,11 +63,17 @@ function SkillItem({ skill, index }: { skill: string; index: number }) {
   return (
     <motion.li
       variants={itemVariants}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
+      onPointerMove={handleMouseMove}
+      onPointerEnter={(e) => {
+        if (e.pointerType === "mouse") setIsHovered(true);
+      }}
+      onPointerLeave={handleMouseLeave}
       style={{
-        transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+        // framer-motion's own transform values, so the entrance animation
+        // (which also drives transform) does not overwrite the tilt.
+        transformPerspective: 1000,
+        rotateX: tilt.x,
+        rotateY: tilt.y,
         transformStyle: "preserve-3d",
       }}
       className={`
@@ -106,7 +115,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="mb-20 sm:mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40 px-4 sm:px-0"
+      className="mb-20 sm:mb-28 max-w-[53rem] text-center"
     >
       <SectionHeading>My skills</SectionHeading>
       <motion.ul

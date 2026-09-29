@@ -15,6 +15,14 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
+function saveTheme(theme: Theme) {
+  try {
+    window.localStorage.setItem("theme", theme);
+  } catch {
+    // Storage can be blocked (private mode); the theme still applies for this visit.
+  }
+}
+
 export default function ThemeContextProvider({
   children,
 }: ThemeContextProviderProps) {
@@ -23,27 +31,20 @@ export default function ThemeContextProvider({
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
-      window.localStorage.setItem("theme", "dark");
+      saveTheme("dark");
       document.documentElement.classList.add("dark");
     } else {
       setTheme("light");
-      window.localStorage.setItem("theme", "light");
+      saveTheme("light");
       document.documentElement.classList.remove("dark");
     }
   };
 
+  // The inline script in the root layout already set the `dark` class before
+  // paint; mirror it into state here.
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme") as Theme | null;
-
-    if (localTheme) {
-      setTheme(localTheme);
-
-      if (localTheme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (document.documentElement.classList.contains("dark")) {
       setTheme("dark");
-      document.documentElement.classList.add("dark");
     }
   }, []);
 
