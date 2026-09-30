@@ -15,6 +15,7 @@ const siteDescription =
   "Software Engineer at Aviato Consulting | GCP Professional Data Engineer | AI/ML agents, data pipelines and backend systems on Google Cloud";
 
 export const metadata = {
+  metadataBase: new URL("https://yash-portfolio-next.vercel.app"),
   title: "Yash | Personal Portfolio",
   description: siteDescription,
   openGraph: {
@@ -41,6 +42,11 @@ export default function RootLayout({
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {/* Preload experience logos for instantaneous navigation */}
+        <link rel="preload" as="image" href="/aviato_consulting_logo.jpeg" />
+        <link rel="preload" as="image" href="/tryclarity_logo.jpeg" />
+        <link rel="preload" as="image" href="/binplus_logo.jpeg" />
+        <link rel="preload" as="image" href="/abhyazlearning_logo.jpeg" />
       </head>
       <body
         className={`${inter.className} bg-gray-50 text-gray-950 relative pt-20 md:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
