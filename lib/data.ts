@@ -201,6 +201,7 @@ export const skillsData = [
   "Firestore",
   "Firebase",
   // AI/ML
+  "Claude (Anthropic)",
   "Gemini Pro",
   "RAG",
   "Vector Search",

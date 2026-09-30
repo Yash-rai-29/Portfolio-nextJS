@@ -290,6 +290,20 @@ html.transitioning * {
   .animate-blob-delay {
     animation: none;
   }
+
+  /* Make ElevenLabs voice assistant widget compact on tablets & phones */
+  elevenlabs-convai {
+    transform: scale(0.78) !important;
+    transform-origin: bottom right !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Even more compact on smaller mobile screens */
+  elevenlabs-convai {
+    transform: scale(0.7) !important;
+    transform-origin: bottom right !important;
+  }
 }
 
 /* ============================================

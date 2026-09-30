@@ -110,15 +110,6 @@ export default function Intro() {
         animate="animate"
         className="mb-10 mt-4 sm:px-4"
       >
-        {/* GCP Certification Badge */}
-        <motion.div
-          variants={fadeInUp}
-          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 mb-3 sm:mb-4 bg-gradient-to-r from-blue-500/10 to-green-500/10 dark:from-blue-500/20 dark:to-green-500/20 rounded-full border border-blue-200 dark:border-blue-500/30"
-        >
-          <span className="text-base sm:text-lg">🎓</span>
-          <span className="text-xs sm:text-sm font-semibold text-blue-700 dark:text-blue-300">GCP Professional Data Engineer Certified</span>
-        </motion.div>
-
         <motion.p
           variants={fadeInUp}
           className="text-base sm:text-lg md:text-xl font-medium !leading-[1.5]"

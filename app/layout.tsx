@@ -12,7 +12,7 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 const siteDescription =
-  "Software Engineer at Aviato Consulting | GCP Professional Data Engineer | AI/ML agents, data pipelines and backend systems on Google Cloud";
+  "Software Engineer at Aviato Consulting | GCP Professional Data Engineer & Claude Certified Architect (CCAR-P) | AI/ML agents, data pipelines and backend systems";
 
 export const metadata = {
   metadataBase: new URL("https://yash-portfolio-next.vercel.app"),
@@ -75,7 +75,10 @@ export default function RootLayout({
         </ThemeContextProvider>
 
         {/* ElevenLabs Voice Assistant Widget */}
-        <elevenlabs-convai agent-id="agent_7501k437m2hhf7aarcnc0pyegbgt" />
+        <elevenlabs-convai
+          agent-id="agent_7501k437m2hhf7aarcnc0pyegbgt"
+          placement="bottom-right"
+        />
 
         {/* TODO: pin a specific version (and add an integrity hash) instead of the moving latest tag. */}
         <Script
