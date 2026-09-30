@@ -23,6 +23,17 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
+  async redirects() {
+    return [
+      { source: "/about", destination: "/#about", permanent: true },
+      { source: "/projects", destination: "/#projects", permanent: true },
+      { source: "/skills", destination: "/#skills", permanent: true },
+      { source: "/experience", destination: "/#experience", permanent: true },
+      { source: "/blog", destination: "/#blog", permanent: true },
+      { source: "/blogs", destination: "/#blog", permanent: true },
+      { source: "/contact", destination: "/#contact", permanent: true },
+    ];
+  },
 };
 
 module.exports = nextConfig;

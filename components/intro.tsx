@@ -41,7 +41,7 @@ const buttonVariants = {
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const { setActiveSection } = useActiveSectionContext();
 
   return (
     <section
@@ -158,7 +158,6 @@ export default function Intro() {
             onClick={(e) => {
               e.preventDefault();
               setActiveSection("Contact");
-              setTimeOfLastClick(Date.now());
             }}
           >
             Contact me here{" "}

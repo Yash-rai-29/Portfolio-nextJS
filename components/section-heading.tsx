@@ -30,7 +30,7 @@ export default function SectionHeading({ children }: SectionHeadingProps) {
       className="mb-8 text-center"
       initial="initial"
       whileInView="animate"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true }}
     >
       <motion.h2
         variants={headingVariants}

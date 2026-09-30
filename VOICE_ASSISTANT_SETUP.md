@@ -32,7 +32,7 @@ Your role is to help visitors learn about Yash's skills, experience, and portfol
 
 ### 3. Get Your Agent ID
 1. After creating the agent, copy the Agent ID from the dashboard
-2. Replace `YOUR_AGENT_ID_HERE` in `components/VoiceAssistant.tsx` with your actual Agent ID
+2. Place your Agent ID in `app/layout.tsx` inside `<elevenlabs-convai agent-id="..." />`
 
 ### 4. Environment Variables (Optional for Private Agents)
 If you want to make your agent private and add authentication:

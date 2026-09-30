@@ -23,9 +23,9 @@ const GESTURE_GAP_MS = 250; // a pause this long discards partial extra scroll
 const MIN_WHEEL_DELTA = 3; // ignore the tiny tail of trackpad inertia
 
 const isAtBottom = () =>
-  window.innerHeight + window.scrollY >=
-  document.documentElement.scrollHeight - 2;
-const isAtTop = () => window.scrollY <= 0;
+  Math.ceil(window.innerHeight + window.scrollY) >=
+  document.documentElement.scrollHeight - 6;
+const isAtTop = () => window.scrollY <= 2;
 
 /**
  * Calls `onNavigate(1)` when the visitor keeps scrolling down at the bottom of

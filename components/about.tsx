@@ -33,7 +33,7 @@ export default function About() {
       className="mb-20 sm:mb-28 max-w-[45rem] text-center leading-7 sm:leading-8 text-sm sm:text-base"
       initial="initial"
       whileInView="animate"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true }}
       id="about"
     >
       <SectionHeading>About me</SectionHeading>

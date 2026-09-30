@@ -15,8 +15,7 @@ import { useScrollNavigation } from "@/lib/hooks";
 import { links } from "@/lib/data";
 
 export default function Home() {
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
+  const { activeSection, setActiveSection } = useActiveSectionContext();
   const isFirstRender = useRef(true);
 
   // Where the next section should start once it has mounted: at its top
@@ -39,7 +38,6 @@ export default function Home() {
     if (!target) return false;
 
     pendingScroll.current = step === 1 ? "top" : "bottom";
-    setTimeOfLastClick(Date.now());
     setActiveSection(target.name);
     return true;
   };

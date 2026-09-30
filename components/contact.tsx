@@ -46,7 +46,7 @@ export default function Contact() {
         variants={formVariants}
         initial="initial"
         whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true }}
       >
         <SectionHeading>Let's Build Together</SectionHeading>
 

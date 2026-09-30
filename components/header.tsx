@@ -14,13 +14,11 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 const DESKTOP_MIN_WIDTH = 768;
 
 export default function Header() {
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSectionContext();
+  const { activeSection, setActiveSection } = useActiveSectionContext();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleNavClick = (name: SectionName) => {
     setActiveSection(name);
-    setTimeOfLastClick(Date.now());
     setMobileOpen(false);
   };
 

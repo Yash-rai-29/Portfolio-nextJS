@@ -123,7 +123,7 @@ export default function Skills() {
         variants={containerVariants}
         initial="initial"
         whileInView="animate"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true }}
       >
         {skillsData.map((skill, index) => (
           <SkillItem key={skill} skill={skill} index={index} />
